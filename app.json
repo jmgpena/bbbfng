@@ -1,0 +1,6 @@
+{
+    "name": "bbbfng",
+    "script": "app.js",
+    "watch": ["app.js", "views"],
+    "ignore_watch": ["flycheck*", "public", ".tern-port", "css"]
+}

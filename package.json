@@ -1,0 +1,28 @@
+{
+  "name": "bbbfng",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pm2:dev": "pm2-dev run app.json",
+    "build:css": "cssnext css/app.css public/stylesheets/style.css",
+    "watch:css": "watch 'npm run build:css' css/",
+    "dev": "parallelshell 'npm run pm2:dev -s' 'npm run watch:css'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jmgpena",
+  "license": "ISC",
+  "devDependencies": {
+    "basscss": "^7.0.4",
+    "cssnext": "^1.8.4",
+    "easy-livereload": "^1.0.3",
+    "live-reload": "^1.1.0",
+    "parallelshell": "^2.0.0",
+    "watch": "^0.16.0"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "pm2": "^0.15.10"
+  }
+}
