@@ -1,0 +1,8 @@
+{
+  "camelcase": true,
+  "latedef": true,
+  "plusplus": true,
+  "quotmark": "single",
+  "node": true,
+  "browserify": true
+}
