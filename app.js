@@ -8,7 +8,7 @@ var app = express();
 
 i18n.configure({
   locales: ['pt', 'en', 'es'],
-  cookie: 'locale',
+  cookie: 'lang',
   defaultLocale: 'pt',
   directory: __dirname + '/locales'
 });
@@ -25,17 +25,10 @@ app.use(require('easy-livereload')({
 }));
 
 app.get('/', function (req, res) {
-    res.cookie('locale', 'en');
-    res.render('index', { pageTitle: 'BBBF2016', message: res.__('Mensagem') });
-});
-
-app.get('/pt', function (req, res) {
-  res.cookie('locale', 'pt');
-  res.render('index', { pageTitle: 'BBBF2016', message: res.__('Mensagem') });
-});
-
-app.get('/es', function (req, res) {
-  res.cookie('locale', 'es');
+  if (req.query.lang) {
+    req.setLocale(req.query.lang);
+    res.cookie('lang', req.query.lang);
+  }
   res.render('index', { pageTitle: 'BBBF2016', message: res.__('Mensagem') });
 });
 
