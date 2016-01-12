@@ -15,6 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "basscss": "^7.0.4",
+    "basscss-background-images": "0.0.9",
     "easy-livereload": "^1.0.3",
     "parallelshell": "^2.0.0",
     "postcss": "^5.0.14",

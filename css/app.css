@@ -1,5 +1,11 @@
 @import 'basscss';
+@import 'basscss-background-images';
 
 .si-glyph-bubble-message-hi {
     width: 32px;
+}
+
+
+.bg-bbbf-blue {
+    background-color: #a1c9e5;
 }

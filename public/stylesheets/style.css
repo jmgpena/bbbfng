@@ -922,7 +922,22 @@ hr {
 .bg-lighten-2 { background-color: #ffffff; background-color: rgba(255,255,255,.125) }
 .bg-lighten-3 { background-color: #ffffff; background-color: rgba(255,255,255,.25) }
 .bg-lighten-4 { background-color: #ffffff; background-color: rgba(255,255,255,.5) }
+/* Basscss Background Images */
+
+.bg-cover   { background-size: cover }
+.bg-contain { background-size: contain }
+
+.bg-center  { background-position: center }
+.bg-top     { background-position: top }
+.bg-right   { background-position: right }
+.bg-bottom  { background-position: bottom }
+.bg-left    { background-position: left }
 
 .si-glyph-bubble-message-hi {
     width: 32px;
+}
+
+
+.bg-bbbf-blue {
+    background-color: #a1c9e5;
 }
