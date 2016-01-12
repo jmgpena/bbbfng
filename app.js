@@ -18,12 +18,14 @@ app.set('view engine', 'jade');
 app.use(cookieParser());
 app.use(express.static('public'));
 app.use(i18n.init);
-app.use(require('easy-livereload')({
+if (app.get('env') === 'development') {
+  app.use(require('easy-livereload')({
     watchDirs: [
-        path.join(__dirname, 'public'),
-        path.join(__dirname, 'views')
+      path.join(__dirname, 'public'),
+      path.join(__dirname, 'views')
     ]
-}));
+  }));
+}
 
 app.get('/', function (req, res) {
   if (req.query.lang) {
