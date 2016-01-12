@@ -1,0 +1,8 @@
+{
+    "name": "bbbfng",
+    "script": "app.js",
+    "node_args": ["--harmony"],
+    "env": {
+        "NODE_ENV": "production"
+    }
+}

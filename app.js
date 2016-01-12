@@ -5,6 +5,7 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var i18n = require('i18n');
 var app = express();
+var env = 'Unknown';
 
 i18n.configure({
   locales: ['pt', 'en', 'es'],
@@ -29,7 +30,7 @@ app.get('/', function (req, res) {
     req.setLocale(req.query.lang);
     res.cookie('lang', req.query.lang);
   }
-  res.render('index', { pageTitle: 'BBBF2016', message: res.__('Mensagem') });
+  res.render('index', { pageTitle: 'BBBF2016', message: res.__('Mensagem'), env: app.get('env') });
 });
 
 var server = app.listen(3000, function () {
