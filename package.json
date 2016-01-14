@@ -6,8 +6,8 @@
   "scripts": {
     "pm2:dev": "pm2-dev run pm2-dev.json",
     "build:css": "postcss -c postcss.config.json",
-    "watch:css": "watch 'npm run build:css' css/",
-    "dev": "parallelshell 'npm run pm2:dev -s' 'npm run watch:css'",
+    "watch:css": "watch 'npm run build:css' css/ -d",
+    "dev": "parallelshell 'npm run pm2:dev -s' 'npm run watch:css' 'livereload . -d'",
     "prod": "pm2 start pm2-prod.json",
     "test": "echo \"Warning: no tests yet\" && exit 0"
   },

@@ -3,5 +3,5 @@
     "script": "app.js",
     "node_args": ["--harmony"],
     "watch": ["app.js", "views"],
-    "ignore_watch": ["flycheck*", "public", ".tern-port", "css", ".git", "node_modules"]
+    "ignore_watch": ["flycheck*", ".#*", "public", ".tern-port", "css", ".git", "node_modules"]
 }
