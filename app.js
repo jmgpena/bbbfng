@@ -18,22 +18,17 @@ app.set('view engine', 'jade');
 app.use(cookieParser());
 app.use(express.static('public'));
 app.use(i18n.init);
-// if (app.get('env') === 'development') {
-//   app.use(require('livereload')({
-//     watchDirs: [
-//       path.join(__dirname, 'public'),
-//       path.join(__dirname, 'views')
-//     ]
-//   }));
-// }
 
 app.get('/', function (req, res) {
-  if (req.query.lang) {
-    req.setLocale(req.query.lang);
-    res.cookie('lang', req.query.lang);
-  }
-  //res.render('index', { pageTitle: 'BBBF2016', message: res.__('Mensagem'), env: app.get('env') });
-  res.render('index-cartaz');
+    if (req.query.lang) {
+        req.setLocale(req.query.lang);
+        res.cookie('lang', req.query.lang);
+    }
+    res.render('index', { pageTitle: 'BBBF2016', message: res.__('Mensagem'), env: app.get('env') });
+});
+
+app.get('/cartaz', function (req, res) {
+    res.render('index-cartaz');
 });
 
 var server = app.listen(3000, function () {

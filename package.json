@@ -7,7 +7,7 @@
     "pm2:dev": "pm2-dev run pm2-dev.json",
     "build:css": "postcss -c postcss.config.json",
     "watch:css": "watch 'npm run build:css' css/ -d",
-    "dev": "parallelshell 'npm run pm2:dev -s' 'npm run watch:css' 'livereload . -d'",
+    "dev": "parallelshell 'npm run pm2:dev -s' 'npm run watch:css' 'browser-sync --proxy http://localhost:3000 --port 7000'",
     "prod": "pm2 start pm2-prod.json",
     "test": "echo \"Warning: no tests yet\" && exit 0"
   },
@@ -16,7 +16,11 @@
   "devDependencies": {
     "basscss": "^7.0.4",
     "basscss-background-images": "0.0.9",
+    "browser-sync": "^2.11.0",
     "easy-livereload": "^1.0.3",
+    "gulp": "^3.9.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-sourcemaps": "^1.6.0",
     "parallelshell": "^2.0.0",
     "postcss": "^5.0.14",
     "postcss-browser-reporter": "^0.4.0",
