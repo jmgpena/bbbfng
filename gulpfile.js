@@ -7,15 +7,12 @@ gulp.task('development', ['pm2', 'css'], function() {
     browserSync.init(null, {
         proxy: {
             target: 'http://localhost:3000',
-            ws: true
         },
         files: ['views/*.jade'],
-        //browser: 'google chrome',
-        online: true,
         port: 7000
     });
 
-    //gulp.watch('public/stylesheets/**/*.*', ['css']);
+    gulp.watch('css/**/*.css', ['css']);
     //gulp.watch(['app.js', 'views/**/*.jade']).on('change', reload);
 });
 
@@ -29,9 +26,7 @@ gulp.task('pm2', function() {
         pm2.start({
             name: 'bbbfng',
             script: 'app.js',
-            node_args: ['--harmony'],
-            watch: ['app.js'],
-            ignore_watch: ['flycheck*', '.#*', 'public', '.tern-port', 'css', '.git', 'node_modules']
+            node_args: ['--harmony']
         }, function(err, apps) {
             pm2.disconnect();
         });
@@ -48,7 +43,7 @@ gulp.task('css', function() {
         require('postcss-browser-reporter'),
         require('postcss-reporter')
     ];
-
+    console.log('Processing CSS...');
     return gulp.src('css/**/*.css')
         .pipe(sourcemaps.init())
         .pipe(postcss(processors))
