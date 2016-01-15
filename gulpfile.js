@@ -3,37 +3,30 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var pm2 = require('pm2');
 
-gulp.task('development', ['pm2', 'css'], function() {
-    browserSync.init(null, {
-        proxy: {
-            target: 'http://localhost:3000',
-        },
-        files: ['views/*.jade'],
-        port: 7000
-    });
-
-    gulp.watch('css/**/*.css', ['css']);
-    //gulp.watch(['app.js', 'views/**/*.jade']).on('change', reload);
-});
-
-gulp.task('pm2', function() {
+var pm2Exec = function (action, data) {
     pm2.connect(function(err) {
+        var disconnectCb = function(err, apps) {
+            pm2.disconnect();
+        };
+
         if (err) {
             console.error(err);
             process.exit(2);
         }
 
-        pm2.start({
-            name: 'bbbfng',
-            script: 'app.js',
-            node_args: ['--harmony']
-        }, function(err, apps) {
-            pm2.disconnect();
-        });
-    });
-});
 
-gulp.task('css', function() {
+        switch (action) {
+        case 'start':
+            pm2.start(data, disconnectCb);
+            break;
+        case 'reload':
+            pm2.gracefulReload(data, disconnectCb);
+            break;
+        }
+    });
+};
+
+var buildCss = function() {
     var postcss    = require('gulp-postcss');
     var sourcemaps = require('gulp-sourcemaps');
     var processors = [
@@ -43,15 +36,42 @@ gulp.task('css', function() {
         require('postcss-browser-reporter'),
         require('postcss-reporter')
     ];
-    console.log('Processing CSS...');
     return gulp.src('css/**/*.css')
         .pipe(sourcemaps.init())
         .pipe(postcss(processors))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('public/stylesheets'))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest('public/stylesheets'));
+};
+
+gulp.task('development', ['pm2-start', 'css'], function() {
+    browserSync.init(null, {
+        proxy: {
+            target: 'http://localhost:3000',
+        },
+        files: ['views/*.jade'],
+        port: 7000
+    });
+
+    gulp.watch('css/**/*.css', ['dev-css']);
+    gulp.watch(['app.js'], ['pm2-reload']);
 });
 
-gulp.task('default', ['development'], function() {
-
+gulp.task('pm2-start', function() {
+    pm2Exec('start', {
+        name: 'bbbfng',
+        script: 'apps.js'
+    });
 });
+
+gulp.task('pm2-reload', function() {
+    pm2Exec('reload', 'bbbfng');
+});
+
+gulp.task('dev-css', function() {
+    buildCss().pipe(browserSync.stream({match: '**/*.css'}));
+});
+
+gulp.task('css', buildCss);
+
+gulp.task('default', ['development']);
+gulp.task('build', ['css']);

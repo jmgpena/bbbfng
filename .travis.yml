@@ -1,13 +1,14 @@
 language: node_js
 node_js:
-  - "5.4"
+- "5.4"
 branches:
-  only:
-  - master
+    only:
+    - master
 addons:
-  ssh_known_hosts: vps.jmgpena.net
+    ssh_known_hosts: vps.jmgpena.net
 before_install:
 - openssl aes-256-cbc -K $encrypted_ac50d320f699_key -iv $encrypted_ac50d320f699_iv -in deploy_key.enc -out deploy_key -d
 - chmod 600 deploy_key
 after_success:
+- npm run build
 - rsync -rv --delete --exclude 'node_modules' --exclude '.git' -e "ssh -i deploy_key" . jmgpena@vps.jmgpena.net:~/bbbfng
