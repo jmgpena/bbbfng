@@ -12,3 +12,12 @@
 .bg-bbbf-black {
     background-color: #1a1818;
 }
+
+.top-4 {
+    top: 64px;
+    top: 4rem;
+}
+
+.muted-less {
+    opacity: .75;
+}

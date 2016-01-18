@@ -3,28 +3,37 @@ html(lang="en")
   head
     title= pageTitle
     link(href='/stylesheets/app.css', rel='stylesheet')
-  body
+  body.container.bg-bbbf-black
     nav.clearfix.bg-bbbf-blue
       .sm-col
-        a.btn.py2(href="/")
-          img(src="/images/logo.png" height="30px")
-        a.btn.py2(href="/") Artistas
-        a.btn.py2(href="/") Info
-      .sm-col-right.table-cell.align-middle
-        a.btn.py2(href="/") Bilhetes
-        a.btn.py2(href="?lang=pt") pt
-        span.py2 |
-        a.btn.py2(href="?lang=en") en
-        span.py2 |
-        a.btn.py2(href="?lang=es") es
-        
+        a.btn.py2(href="/") Novidades
+        a.btn.py2(href="/") Programa
+        a.btn.py2(href="/") Histórico
+
+    nav.fixed.top-0.right-0.white.bg-black.muted-less
+        .sm-col
+            div
+                a.btn.py2(href="/")
+                  img(src="/images/logobbbf-dark-small.png" height="64px")
+            div
+                a.btn Bilhetes
+            div
+                a.btn Como Chegar
+            div
+                a.btn Informações Úteis
+            div
+                a.btn.py2(href="?lang=pt") pt
+                span.py2 |
+                a.btn.py2(href="?lang=en") en
+                span.py2 |
+                a.btn.py2(href="?lang=es") es
         
     header.center.px3.py4.white.bg-black.bg-cover(style="background-image: url(/images/b-b-king.jpg)")
       h1.h1.h0-responsive.caps.mt4.mb0.regular BB Blues Fest 2016
       p.h3= message
       a.h3.btn.btn-primary.mb4(href="#") Entrar
   
-    section.container.px2.py3
+    section.container.px2.py3.bg-white
       .clearfix.mxn2
         .sm-col.sm-col-4.px2
           h2.h1.mb0 Bacon
