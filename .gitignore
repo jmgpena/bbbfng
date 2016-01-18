@@ -36,6 +36,4 @@ node_modules
 # Tern temporary files
 .tern-port
 .DS_Store
-/public/.DS_Store
 /public/stylesheets
-/public/images/logobbbf-dark-small.png
