@@ -21,7 +21,6 @@
     "basscss": "7.0.4",
     "basscss-background-images": "0.0.9",
     "browser-sync": "2.11.0",
-    "easy-livereload": "1.0.3",
     "gulp": "3.9.0",
     "gulp-postcss": "6.0.1",
     "gulp-sourcemaps": "1.6.0",
@@ -36,12 +35,12 @@
     "watch": "0.17.0"
   },
   "dependencies": {
-    "cookie-parser": "1.4.0",
-    "express": "4.13.3",
-    "i18n": "0.5.0",
+    "hapi": "12.1.0",
+    "inert": "^3.2.0",
     "jade": "1.11.0",
     "knex": "0.9.0",
     "pm2": "1.0.0",
-    "sqlite3": "3.1.1"
+    "sqlite3": "3.1.1",
+    "vision": "^4.0.1"
   }
 }

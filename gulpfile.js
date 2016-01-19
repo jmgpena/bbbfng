@@ -6,6 +6,7 @@ var pm2 = require('pm2');
 var pm2Exec = function (action, data) {
     pm2.connect(function(err) {
         var disconnectCb = function(err, apps) {
+            console.log('disconnecting...');
             pm2.disconnect();
         };
 
@@ -17,6 +18,7 @@ var pm2Exec = function (action, data) {
 
         switch (action) {
         case 'start':
+            console.log('Starting process');
             pm2.start(data, disconnectCb);
             break;
         case 'reload':
@@ -43,7 +45,21 @@ var buildCss = function() {
         .pipe(gulp.dest('public/stylesheets'));
 };
 
-gulp.task('development', ['pm2-start', 'css'], function() {
+gulp.task('server:start', function (callback) {
+    server = require('./app.js');
+    server.start(function() {
+        callback();
+    });
+});
+
+gulp.task('server:stop', function (callback) {
+    server.stop(function() {
+        process.exit(0);
+        callback();
+    });
+});
+
+gulp.task('development', ['server:start', 'css'], function() {
     browserSync.init(null, {
         proxy: {
             target: 'http://localhost:3000',
@@ -53,7 +69,7 @@ gulp.task('development', ['pm2-start', 'css'], function() {
     });
 
     gulp.watch('css/**/*.css', ['dev-css']);
-    gulp.watch(['app.js'], ['pm2-reload']);
+    gulp.watch(['app.js'], ['server:start']);
 });
 
 gulp.task('pm2-start', function() {
