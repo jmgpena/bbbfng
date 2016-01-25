@@ -4,5 +4,11 @@
   "plusplus": true,
   "quotmark": "single",
   "node": true,
-  "browserify": true
+  "browserify": true,
+  "esnext": true,
+    "globals": {
+        "require" : false,
+        "module" : false,
+        "__dirname" : false
+    }
 }
