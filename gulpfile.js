@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var pm2 = require('pm2');
+var server = require('./app.js');
 
 var pm2Exec = function (action, data) {
     pm2.connect(function(err) {
@@ -46,9 +47,16 @@ var buildCss = function() {
 };
 
 gulp.task('server:start', function (callback) {
-    server = require('./app.js');
     server.start(function() {
         callback();
+    });
+});
+
+gulp.task('server:reload', (callback) => {
+    server.stop(() => {
+        server.start(() => {
+            callback();
+        });
     });
 });
 
@@ -64,12 +72,12 @@ gulp.task('development', ['server:start', 'css'], function() {
         proxy: {
             target: 'http://localhost:3000',
         },
-        files: ['views/*.jade'],
+        files: ['views/*.jade','app.js'],
         port: 7000
     });
 
     gulp.watch('css/**/*.css', ['dev-css']);
-    gulp.watch(['app.js'], ['server:start']);
+    gulp.watch(['app.js'], ['server:reload']);
 });
 
 gulp.task('pm2-start', function() {

@@ -18,8 +18,9 @@ server.register(require('vision'), (err) => {
     server.views({
         engines: { jade: require('jade')},
         path: __dirname + '/views',
+        isCached: false,
         compileOptions: {
-            pretty: true
+            pretty: false
         }
     });
 });
