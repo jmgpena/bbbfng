@@ -55,4 +55,12 @@ server.route({
     }
 });
 
+server.route({
+    method: 'GET',
+    path: '/cartaz',
+    handler: function (request, reply) {
+        reply.view('index-cartaz');
+    }
+});
+
 module.exports = server;
