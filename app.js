@@ -1,8 +1,9 @@
 /* globals module require */
 'use strict';
 
-var path = require('path');
-var hapi = require('hapi');
+var path   = require('path');
+var hapi   = require('hapi');
+var routes = require('./app/routes.js');
 //var cookieParser = require('cookie-parser');
 //var i18n = require('i18n');
 var server = new hapi.Server();
@@ -36,31 +37,10 @@ server.register([
     }
 });
 
-server.route({
-    method: 'GET',
-    path: '/',
-    handler: function (request, reply) {
-        reply.view('index');
-    }
-});
 
-/* serve static files on development */
-server.route({
-    method: 'GET',
-    path: '/{param*}',
-    handler: {
-        directory: {
-            path: 'public'
-        }
-    }
-});
-
-server.route({
-    method: 'GET',
-    path: '/cartaz',
-    handler: function (request, reply) {
-        reply.view('index-cartaz');
-    }
+// add routes to server
+routes.map((route) => {
+    server.route(route);
 });
 
 module.exports = server;

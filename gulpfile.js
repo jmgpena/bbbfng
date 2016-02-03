@@ -1,32 +1,7 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
-var pm2 = require('pm2');
-
-var pm2Exec = function (action, data) {
-    pm2.connect(function(err) {
-        var disconnectCb = function(err, apps) {
-            console.log('disconnecting...');
-            pm2.disconnect();
-        };
-
-        if (err) {
-            console.error(err);
-            process.exit(2);
-        }
-
-
-        switch (action) {
-        case 'start':
-            console.log('Starting process');
-            pm2.start(data, disconnectCb);
-            break;
-        case 'reload':
-            pm2.gracefulReload(data, disconnectCb);
-            break;
-        }
-    });
-};
+var server = require('./app.js');
 
 var buildCss = function() {
     var postcss    = require('gulp-postcss');
@@ -46,27 +21,19 @@ var buildCss = function() {
 };
 
 gulp.task('server:start', function (callback) {
-    var server = require('./app.js');
     server.start(function() {
         callback();
     });
 });
 
 gulp.task('server:reload', (callback) => {
-    var server = require('./app.js');
     server.stop(() => {
+        delete require.cache[require.resolve('./app.js')];
+        server = require('./app.js');
         server.start(() => {
             callback();
             browserSync.reload();
         });
-    });
-});
-
-gulp.task('server:stop', function (callback) {
-    var server = require('./app.js');
-    server.stop(function() {
-        process.exit(0);
-        callback();
     });
 });
 
@@ -80,18 +47,7 @@ gulp.task('development', ['server:start', 'css'], function() {
     });
 
     gulp.watch('css/**/*.css', ['dev-css']);
-    gulp.watch(['app.js'], ['server:reload']);
-});
-
-gulp.task('pm2-start', function() {
-    pm2Exec('start', {
-        name: 'bbbfng',
-        script: 'apps.js'
-    });
-});
-
-gulp.task('pm2-reload', function() {
-    pm2Exec('reload', 'bbbfng');
+    gulp.watch(['app.js', 'app/**/*.js'], ['server:reload']);
 });
 
 gulp.task('dev-css', function() {
