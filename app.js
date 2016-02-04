@@ -1,12 +1,12 @@
 /* globals module require */
 'use strict';
 
-var path   = require('path');
-var hapi   = require('hapi');
-var routes = require('./app/routes.js');
+const path   = require('path');
+const hapi   = require('hapi');
+const routes = require('./app/routes.js');
 //var cookieParser = require('cookie-parser');
 //var i18n = require('i18n');
-var server = new hapi.Server();
+const server = new hapi.Server();
 
 server.connection({
     host: 'localhost',
@@ -43,4 +43,11 @@ routes.map((route) => {
     server.route(route);
 });
 
-server.start();
+// start server and send message to parent2
+server.start(() => {
+    console.log('Server running at:', server.info.uri);
+    process.send({
+        type: 'server:started',
+        data: {}
+    });
+});

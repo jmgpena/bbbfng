@@ -1,7 +1,23 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
-const nodemon = require('gulp-nodemon');
+const pm2 = require('pm2');
 
+// stop pm2 app on exiting gulp
+process.stdin.resume();
+process.on('SIGINT', () => {
+    console.log('exit:stopping server...');
+    pm2.connect((err) => {
+        if (err) {
+            console.error(err);
+            process.exit(2);
+        }
+        pm2.delete('bbbf-dev',() => {
+            process.exit(2);
+        });
+    });
+});
+
+// build the css
 var buildCss = function() {
     var postcss    = require('gulp-postcss');
     var sourcemaps = require('gulp-sourcemaps');
@@ -29,10 +45,26 @@ gulp.task('development', ['css'], function() {
         open: false
     });
 
-    nodemon({
-        script: './app.js',
-        ext: 'js'
-    }).on('restart', () => { setTimeout(browserSync.reload, 700); });
+    pm2.connect((err) => {
+        if (err) {
+            console.error(err);
+            process.exit(2);
+        }
+        pm2.start({
+            name: 'bbbf-dev',
+            script: 'app.js',
+            watch: true,
+            ignore_watch: ['node_modules', 'css', 'public', 'gulpfile.js', 'flycheck*', '.#*', '.git']
+        }, (err, apps) => {
+            pm2.disconnect();
+        });
+        pm2.launchBus((err, bus) => {
+            bus.on('server:started', () => {
+                console.log('[hapijs]: server started');
+                browserSync.reload();
+            });
+        });
+    });
     gulp.watch('css/**/*.css', ['dev-css']);
 });
 
