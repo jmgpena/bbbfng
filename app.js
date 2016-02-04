@@ -43,4 +43,4 @@ routes.map((route) => {
     server.route(route);
 });
 
-module.exports = server;
+server.start();
