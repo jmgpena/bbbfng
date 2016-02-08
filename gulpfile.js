@@ -75,4 +75,6 @@ gulp.task('dev-css', function() {
 gulp.task('css', buildCss);
 
 gulp.task('default', ['development']);
-gulp.task('build', ['css']);
+gulp.task('build', ['css'], () => {
+    process.exit(0);
+});
