@@ -2,6 +2,7 @@
 
 module.exports = [
     { method: 'GET', path: '/', handler: require('./actions/home.js') },
+    { method: 'GET', path: '/{languageCode}/', handler: require('./actions/home.js') },
     // serve static files (should only apply on development)
     { method: 'GET', path: '/{param*}',
         handler: {

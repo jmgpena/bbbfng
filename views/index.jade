@@ -8,27 +8,27 @@ html(lang="en")
   body.container.bg-bbbf-black
     nav.clearfix.bg-bbbf-blue
       .sm-col
-        a.btn.py2(href="/") Novidades
-        a.btn.py2(href="/") Programa
-        a.btn.py2(href="/") Histórico
+        a.btn.py2(href="/#{languageCode}")= __("Novidades")
+        a.btn.py2(href="/")= __("Programa")
+        a.btn.py2(href="/")= __("Histórico")
 
     nav.fixed.top-0.right-0.white.bg-black.muted-less
         .sm-col
             div
-                a.btn.py2(href="/")
+                a.btn.py2(href="/#{languageCode}/")
                   img(src="/images/logobbbf-dark-small.png" height="64px")
             div
-                a.btn Bilhetes
+                a.btn(href="/#{languageCode}/bilhetes") Bilhetes
             div
                 a.btn Como Chegar
             div
                 a.btn Informações Úteis
             div
-                a.btn.py2(href="?lang=pt") pt
+                a.btn.py2(href="/pt/") pt
                 span.py2 |
-                a.btn.py2(href="?lang=en") en
+                a.btn.py2(href="/en/") en
                 span.py2 |
-                a.btn.py2(href="?lang=es") es
+                a.btn.py2(href="/es/") es
         
     header.center.px3.py4.white.bg-black.bg-cover(style="background-image: url(/images/b-b-king.jpg)")
       h1.h1.h0-responsive.caps.mt4.mb0.regular BB Blues Fest 2016
@@ -38,7 +38,7 @@ html(lang="en")
     section.container.px2.py3.bg-white
       .clearfix.mxn2
         .sm-col.sm-col-4.px2
-          h2.h1.mb0 Bacon
+          h2.h1.mb0 Bandas
           p Batatas fritas ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison. Ham bacon corned beef, sausage kielbasa flank tongue pig drumstick capicola swine short loin ham hock kevin.
         .sm-col.sm-col-4.px2
           h2.h1.mb0 Mr. Sandman
@@ -104,5 +104,5 @@ html(lang="en")
                 a.h5.btn.block(href="#") Item4
         p.center.h6.mb0
           | &copy; 2016 BB Blues Portugal (
-          span= env
+          span= languageCode
           | )

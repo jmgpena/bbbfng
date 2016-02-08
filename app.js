@@ -4,8 +4,6 @@
 const path   = require('path');
 const hapi   = require('hapi');
 const routes = require('./app/routes.js');
-//var cookieParser = require('cookie-parser');
-//var i18n = require('i18n');
 const server = new hapi.Server();
 
 server.connection({
@@ -37,6 +35,28 @@ server.register([
     }
 });
 
+server.register({
+    register: require('hapi-i18n'),
+    options: {
+        locales: ['pt', 'en', 'es'],
+        defaultLocale: 'pt',
+        directory: __dirname + '/locales'
+    }
+}, (err) => {
+    if (err) {
+        console.error('Failed to load a plugin:', err);
+    }
+});
+
+// add i18n translation function to all jade requests
+server.ext('onPreResponse', (request, reply) => {
+    const response = request.response;
+    if (response.variety === 'view') {
+        let context = response.source.context;
+        context.__ = request.i18n.__;
+    }
+    return reply.continue();
+});
 
 // add routes to server
 routes.map((route) => {
