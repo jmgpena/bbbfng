@@ -1,7 +1,9 @@
 {
   "name": "bbbfng",
   "script": "app.js",
-  "watch": "app.js",
+  "error_file": 'log/error.log',
+  "out_file": 'log/out.log',
+  "watch": ["app.js","app","pm2-prod.json"],
   "env": {
     "NODE_ENV": "production"
   }
