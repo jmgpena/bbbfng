@@ -37,15 +37,10 @@ html(lang="en")
   
     section.container.px2.py3.bg-white
       .clearfix.mxn2
-        .sm-col.sm-col-4.px2
-          h2.h1.mb0 Bandas
-          p Batatas fritas ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison. Ham bacon corned beef, sausage kielbasa flank tongue pig drumstick capicola swine short loin ham hock kevin.
-        .sm-col.sm-col-4.px2
-          h2.h1.mb0 Mr. Sandman
-          p Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison. Ham bacon corned beef, sausage kielbasa flank tongue pig drumstick capicola swine short loin ham hock kevin.
-        .sm-col.sm-col-4.px2
-          h2.h1.mb0 Blues4two
-          p Bacon ipsum dolor sit amet chuck prosciutto landjaeger ham hock filet mignon shoulder hamburger pig venison. Ham bacon corned beef, sausage kielbasa flank tongue pig drumstick capicola swine short loin ham hock kevin.
+        each post in news
+            .sm-col.sm-col-4.px2
+              h2.h1.mb0=post.title
+              p=post.body
 
     footer.white.bg-black
       .px2.py3.container

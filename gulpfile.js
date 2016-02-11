@@ -53,6 +53,8 @@ gulp.task('development', ['css'], function() {
         pm2.start({
             name: 'bbbf-dev',
             script: 'app.js',
+            error_file: 'log/error.log',
+            out_file: 'log/out.log',
             watch: true,
             ignore_watch: ['node_modules', 'css', 'public', 'gulpfile.js', 'flycheck*', '.#*', '.git']
         }, (err, apps) => {
