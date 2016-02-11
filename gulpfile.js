@@ -56,7 +56,10 @@ gulp.task('development', ['css'], function() {
             error_file: 'log/error.log',
             out_file: 'log/out.log',
             watch: true,
-            ignore_watch: ['node_modules', 'css', 'public', 'gulpfile.js', 'flycheck*', '.#*', '.git']
+            ignore_watch: ['node_modules', 'css', 'public', 'gulpfile.js', 'flycheck*', '.#*', '.git'],
+            env: {
+                NODE_ENV: 'development'
+            }
         }, (err, apps) => {
             pm2.disconnect();
         });
