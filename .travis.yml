@@ -11,4 +11,4 @@ before_install:
 - chmod 600 deploy_key
 after_success:
 - npm run build
-- rsync -rv --delete --exclude 'node_modules' --exclude '.git' --exclude 'prod.sqlite3' -e "ssh -i deploy_key" . jmgpena@vps.jmgpena.net:~/bbbfng
+- rsync -rv --delete --exclude 'node_modules' --exclude '.git' -e "ssh -i deploy_key" . jmgpena@vps.jmgpena.net:~/bbbfng
