@@ -30,16 +30,15 @@ html(lang="en")
                 span.py2 |
                 a.btn.py2(href="/es/") es
         
-    header.center.px3.py4.white.bg-black.bg-cover(style="background-image: url(/images/b-b-king.jpg)")
-      h1.h1.h0-responsive.caps.mt4.mb0.regular BB Blues Fest 2016
-      p.h3= message
-      a.h3.btn.btn-primary.mb4(href="#") Entrar
-  
+    header.center.px3.py4.white.bg-black.bg-cover(style="background-image: url(/images/news/" + header.pic +")")
+      h1.h1.h0-responsive.caps.mt4.mb0.regular=header.title
+
     section.container.px2.py3.bg-white
       .clearfix.mxn2
         each post in news
             .sm-col.sm-col-4.px2
               h2.h1.mb0=post.title
+              img(src="/images/news/" + post.pic)
               p=post.body
 
     footer.white.bg-black
