@@ -1,16 +1,13 @@
 'use strict';
-const db     = require('../db.js');
-// __: request.i18n.__,
+const news = require('../domain/news.js');
+
 module.exports = function(request, reply) {
-    let news;
-    db.select('title', 'body', 'pic').from('news').limit(3)
-        .then((rows) => {
-            console.log(rows);
-            reply.view('index', {
-                message: request.i18n.__("Mensagem"),
-                news: rows,
-                header: rows[0]
-            });
-        })
-        .catch((error) => { console.log(error); });
+    const locale = request.locale;
+    news.home(locale).then((homeNews) => {
+        reply.view('index', {
+            message: request.i18n.__("Mensagem"),
+            news: homeNews,
+            header: homeNews[0]
+        });
+    });
 };
