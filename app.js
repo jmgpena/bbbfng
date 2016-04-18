@@ -4,7 +4,11 @@
 const path   = require('path');
 const hapi   = require('hapi');
 const routes = require('./app/routes.js');
-const server = new hapi.Server();
+const server = new hapi.Server({
+    debug: {
+        request: ['error']
+    }
+});
 
 server.connection({
   host: 'localhost',

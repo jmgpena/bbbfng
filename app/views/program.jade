@@ -1,0 +1,11 @@
+doctype html
+html(lang="en")
+  include ./includes/head.jade
+  body.container.bg-bbbf-black
+    include ./includes/top-nav.jade
+
+    each item in bands
+      h2.h1.mb0=item.name
+      img(src="/images/bandas/" + item.picture)
+
+    include ./includes/footer.jade
