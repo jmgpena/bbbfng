@@ -5,9 +5,8 @@ html(lang="en")
     include ./includes/top-nav.jade
 
     section.bg-white
-        each item in bands
-          a(href="/bandas/" + item.slug)
-              h2.h1.mb0=item.name
-          img(src="/images/bandas/" + item.picture).max-width-1
+      .h2=band.name
+      img(src="/images/bandas/" + band.picture).max-width-1
+      div=band.info
 
     include ./includes/footer.jade
