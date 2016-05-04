@@ -4,8 +4,12 @@ html(lang="en")
   body.container.bg-bbbf-black
     include ./includes/top-nav.jade
 
-    header.center.px3.py4.white.bg-black.bg-cover(style="background-image: url(/images/news/" + header.pic +")")
-      h1.h1.h0-responsive.caps.mt4.mb0.regular=header.title
+    div.my-slider
+      ul
+        each post in news
+          li
+            header.center.px3.py4.white.bg-black.bg-cover(style="background-image: url(/images/news/" + post.pic +")")
+              h1.h1.h0-responsive.caps.mt4.mb0.regular=post.title
 
     section.container.px2.py3.bg-white
       .clearfix.mxn2
