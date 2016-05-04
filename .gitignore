@@ -36,4 +36,5 @@ node_modules
 # Tern temporary files
 .tern-port
 .DS_Store
-/public/stylesheets
+/public/stylesheets/app.css
+/public/stylesheets/app.css.map
