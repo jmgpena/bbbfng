@@ -24,6 +24,9 @@ module.exports = {
                 let band = {};
 
                 band = row[0];
+                band.name  = row[0]['name_'+locale] || row[0]['name'];
+                band.info  = row[0]['info_'+locale] || row[0]['info'];
+                band.local = row[0]['local_'+locale] || row[0]['local'];
 
                 return band;
             })
