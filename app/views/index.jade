@@ -8,8 +8,9 @@ html(lang="en")
       ul
         each band in header
           li
-            header.center.px3.py4.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.picture +")")
-              h1.h1.h0-responsive.caps.mt4.mb0.regular=band.name
+            .sixteen-nine
+                header.content.center.px3.py4.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
+                  h1.h1.h0-responsive.caps.mt4.mb0.regular=band.name
 
     section.container.px2.py3.bg-white
       .clearfix.mxn2

@@ -10,7 +10,8 @@ module.exports = {
                     let bandItem = {};
 
                     bandItem.name = row['name_'+locale] || row['name'];
-                    bandItem.picture  = row['picture'];
+                    bandItem.pic  = row['pic'];
+                    bandItem.banner  = row['banner'];
                     bandItem.slug = row['slug'];
 
                     return bandItem;
