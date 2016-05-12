@@ -10,6 +10,9 @@ module.exports = {
                     let bandItem = {};
 
                     bandItem.name = row['name_'+locale] || row['name'];
+                    bandItem.date = row['date_'+locale] || row['date'];
+                    bandItem.venue = row['venue_'+locale] || row['venue'];
+                    bandItem.time  = row['time'];
                     bandItem.pic  = row['pic'];
                     bandItem.banner  = row['banner'];
                     bandItem.slug = row['slug'];

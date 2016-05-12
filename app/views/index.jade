@@ -10,7 +10,9 @@ html(lang="en")
           li
             .sixteen-nine
                 header.content.center.px3.py4.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
-                  h1.h1.h0-responsive.caps.mt4.mb0.regular=band.name
+                  h1.h2.h0-responsive.caps.mt4.mb0.regular=band.name
+                  h1.h2.h0-responsive.caps.mt3.mb0.regular=band.date + " " +band.time
+                  h1.h3.h0-responsive.caps.mt1.mb0.regular=band.venue
 
     section.container.px2.py3.bg-white
       .clearfix.mxn2
