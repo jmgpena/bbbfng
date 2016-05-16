@@ -19,7 +19,8 @@ html(lang="en")
       .clearfix.mxn2
         each post in news
             .sm-col.sm-col-4.px2
-              h2.h1.mb0=post.title
+              a(href="/news/" + post.id)
+                h2.h1.mb0=post.title
               img(src="/images/news/" + post.pic)
               p=post.body
 

@@ -1,0 +1,12 @@
+doctype html
+html(lang="en")
+  include ./includes/head.jade
+  body.container.bg-bbbf-black
+    include ./includes/top-nav.jade
+
+    section.bg-white
+      .h2=item.title
+      img(src="/images/news/" + item.pic).max-width-1
+      div=item.body
+
+    include ./includes/footer.jade

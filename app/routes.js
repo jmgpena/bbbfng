@@ -28,6 +28,9 @@ module.exports = [
     { method: 'GET', path: '/{languageCode}/programa', handler: require('./actions/program.js') },
     { method: 'GET', path: '/bandas/{slug}', handler: require('./actions/band.js') },
     { method: 'GET', path: '/{languageCode}/bandas/{slug}', handler: require('./actions/band.js') },
+    // news
+    { method: 'GET', path: '/news/{id}', handler: require('./actions/news-item.js') },
+    { method: 'GET', path: '/{languageCode}/news/{id}', handler: require('./actions/news-item.js') },
     // home
     { method: 'GET', path: '/', handler: require('./actions/home.js') },
     { method: 'GET', path: '/{languageCode}/', handler: require('./actions/home.js') },
