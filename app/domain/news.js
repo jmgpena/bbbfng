@@ -9,8 +9,14 @@ module.exports = {
                 return _.map(rows, (row) => {
                     let newsItem = {};
 
-                    newsItem.title = row['title_'+locale] || row['title_pt'];
-                    newsItem.body  = row['body_'+locale] || row['body_pt'];
+                    newsItem.title = _.truncate(row['title_'+locale] || row['title_pt'], {
+                        'length': 38,
+                        'separator': ' '
+                    });
+                    newsItem.body   = _.truncate(row['body_'+locale] || row['body_pt'], {
+                        'length': 122,
+                        'separator': /,? +/
+                    });
                     newsItem.pic   = row['pic'];
 
                     return newsItem;
