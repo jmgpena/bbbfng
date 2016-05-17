@@ -25,7 +25,9 @@ module.exports = [
     },
     // bands
     { method: 'GET', path: '/programa', handler: require('./actions/program.js') },
-    { method: 'GET', path: '/{languageCode}/programa', handler: require('./actions/program.js') },
+    { method: 'GET', path: '/{languageCode}/programa', handler: require('./actions/history.js') },
+    { method: 'GET', path: '/historico', handler: require('./actions/program.js') },
+    { method: 'GET', path: '/{languageCode}/historico', handler: require('./actions/history.js') },
     { method: 'GET', path: '/bandas/{slug}', handler: require('./actions/band.js') },
     { method: 'GET', path: '/{languageCode}/bandas/{slug}', handler: require('./actions/band.js') },
     // news
