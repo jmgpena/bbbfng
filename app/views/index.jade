@@ -10,7 +10,8 @@ html(lang="en")
           li
             a(href="/bandas/" + band.slug)
               .sixteen-nine
-                header.content.center.px3.py4.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
+                header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
+                  img(src="/images/bandas/"+band.slug+"-label.png", height="300").absolute.top-4.left-minus-4
 
     section.container.px2.py3.bg-white
       .clearfix.mxn2
