@@ -18,7 +18,7 @@ html(lang="en")
         each post in news
             .sm-col.sm-col-4.px2
               a(href="/news/" + post.id)
-                h2.h1.mb0=post.title
+                h2.h1.font-title.mb0.bbbf-blue=post.title
               img(src="/images/news/" + post.pic)
               p=post.body
 
