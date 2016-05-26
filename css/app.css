@@ -51,3 +51,12 @@
     right: 0;
     bottom: 0;
 }
+
+.border-bbbf {
+    border-right: 2px dotted white;
+    border-left: 2px dotted white;
+}
+
+.border-bottom-dotted {
+    border-bottom: 2px dotted black;
+}

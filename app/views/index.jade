@@ -1,7 +1,7 @@
 doctype html
 html(lang="en")
   include ./includes/head.jade
-  body.container.bg-bbbf-black
+  body.container.bg-black
     include ./includes/top-nav.jade
 
     div.my-slider
@@ -13,8 +13,18 @@ html(lang="en")
                 header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
                   img(src="/images/bandas/"+band.slug+"-label.png", height="300").absolute.top-4.left-minus-4
 
-    section.container.px2.py3.bg-bbbf-blue
-      .clearfix.mxn2
+    section.container.px4.py2.bg-bbbf-blue
+      .container.border-bottom-dotted.pb3
+        img(src="/images/home-banner-logo.png")
+        p.font-text.h4.
+          Ao longo das últimas quatro edições, este Festival tem sabido afirmar-se e conseguido fidelizar cada vez mais público, sendo já uma referência no panorama do Blues nacional.
+        p.font-text.h4.
+          Realizado no Fórum Cultural José Manuel Figueiredo, na Baixa da Banheira, o BB Blues Fest aposta sempre na qualidade do seu cartaz, apresentando os melhores nomes do Blues português e internacional, numa simbiose perfeita que celebra as raízes deste género musical.
+        a(href="/programa").table
+          h1.h2.font-title.caps.black.table-cell.black.align-middle Consulte o programa desta 5ª Edição
+          img(src="/images/seta.png").table-cell
+
+      .clearfix.mxn2.pb2
         each post in news
             .sm-col.sm-col-4.px2
               a(href="/news/" + post.id)
