@@ -6,12 +6,30 @@ html(lang="en")
 
     section.bg-bbbf-blue.py3.px4(style="background-image: url(/images/bg-programa.png)")
       .table
-        .table-cell
+        .table-cell.align-top
           img(src="/images/dia23.png")
-        .h4.font-title.caps.pl2
-          span.white 22H00
-          span - Café Concerto
-        .h3.font-title.caps.pl2 Jan Sjoberg (SUE) & Danny Del Toro (ESP)
+        .table-cell.align.top.pt4
+          .h4.font-title.caps.pl2
+            span.white 22H00
+            span  - Café Concerto
+          .h3.font-title.caps.pl2 Jan Sjoberg (SUE) & Danny Del Toro (ESP)
+      .table
+        .table-cell.align-top
+          img(src="/images/dia24.png")
+        .table-cell.align.top.pt4
+          .h4.font-title.caps.pl2
+            span.white 21H30
+            span  - Opening Act
+          .h3.font-title.caps.pl2 Batucadeiras (CV)
+          .h4.font-title.caps.pl2
+            span.white 22H00
+            span  - Auditório
+          .h3.font-title.caps.pl2 Laurence Jones (UK)
+          .h4.font-title.caps.pl2
+            span.white 23H25
+            span  - Auditório
+          .h3.font-title.caps.pl2 Judy Blues Eyes (PT)
+          .h4.font-title.caps.pl2 Convidado Especial: Rui Veloso
 
       each item in bands
         a(href="/bandas/" + item.slug)
