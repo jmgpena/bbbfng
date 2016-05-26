@@ -13,13 +13,13 @@ html(lang="en")
                 header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
                   img(src="/images/bandas/"+band.slug+"-label.png", height="300").absolute.top-4.left-minus-4
 
-    section.container.px2.py3.bg-white
+    section.container.px2.py3.bg-bbbf-blue
       .clearfix.mxn2
         each post in news
             .sm-col.sm-col-4.px2
               a(href="/news/" + post.id)
-                h2.h1.font-title.mb0.bbbf-blue=post.title
+                h2.h1.font-title.mb0.black=post.title
               img(src="/images/news/" + post.pic)
-              p=post.body
+              p.font-text=post.body
 
     include ./includes/footer.jade

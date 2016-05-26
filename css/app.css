@@ -16,6 +16,9 @@
 .font-title {
     font-family: 'Oswald', sans-serif;
 }
+.font-text {
+    font-family: 'Roboto', sans-serif;
+}
 
 .top-1 { top: var(--space-1) }
 .top-2 { top: var(--space-2) }
