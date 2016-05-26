@@ -1,6 +1,19 @@
 @import 'basscss';
 @import 'basscss-background-images';
 
+a.link-black {
+    color: black;
+}
+
+a.link-black:visited {
+    color: black;
+}
+
+a.link-black:hover {
+    color: white;
+    text-decoration: none;
+}
+
 .si-glyph-bubble-message-hi {
     width: 32px;
 }
@@ -60,3 +73,4 @@
 .border-bottom-dotted {
     border-bottom: 2px dotted black;
 }
+

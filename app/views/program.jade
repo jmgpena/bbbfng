@@ -1,13 +1,21 @@
 doctype html
 html(lang="en")
   include ./includes/head.jade
-  body.container.bg-bbbf-black
+  body.container.bg-black
     include ./includes/top-nav.jade
 
-    section.bg-white
-        each item in bands
-          a(href="/bandas/" + item.slug)
-              h2.h1.mb0=item.name
-          img(src="/images/bandas/" + item.pic).max-width-1
+    section.bg-bbbf-blue.py3.px4(style="background-image: url(/images/bg-programa.png)")
+      .table
+        .table-cell
+          img(src="/images/dia23.png")
+        .h4.font-title.caps.pl2
+          span.white 22H00
+          span - Café Concerto
+        .h3.font-title.caps.pl2 Jan Sjoberg (SUE) & Danny Del Toro (ESP)
+
+      each item in bands
+        a(href="/bandas/" + item.slug)
+          h2.h1.mb0=item.name
+        img(src="/images/bandas/" + item.pic).max-width-1
 
     include ./includes/footer.jade
