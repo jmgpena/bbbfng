@@ -4,36 +4,78 @@ html(lang="en")
   body.container.bg-black
     include ./includes/top-nav.jade
 
-    section.bg-bbbf-blue.py3.px4(style="background-image: url(/images/bg-programa.png)")
-      .table
-        .table-cell.align-top
-          img(src="/images/dia23.png")
-        .table-cell.align.top.pt4
-          .h4.font-title.caps.pl2
-            span.white 22H00
-            span  - Café Concerto
-          .h3.font-title.caps.pl2 Jan Sjoberg (SUE) & Danny Del Toro (ESP)
-      .table
-        .table-cell.align-top
-          img(src="/images/dia24.png")
-        .table-cell.align.top.pt4
-          .h4.font-title.caps.pl2
-            span.white 21H30
-            span  - Opening Act
-          .h3.font-title.caps.pl2 Batucadeiras (CV)
-          .h4.font-title.caps.pl2
-            span.white 22H00
-            span  - Auditório
-          .h3.font-title.caps.pl2 Laurence Jones (UK)
-          .h4.font-title.caps.pl2
-            span.white 23H25
-            span  - Auditório
-          .h3.font-title.caps.pl2 Judy Blues Eyes (PT)
-          .h4.font-title.caps.pl2 Convidado Especial: Rui Veloso
+    section.bg-bbbf-blue.py3.px4(style="background-image: url(/images/bg-programa.png); background-size: cover")
+      table.border-bottom-dotted.pb4
+        tr
+          td.align-top(style="width:15%")
+            img(src="/images/dia23.png")
+          td.align.top.pt3.pl0
+            .h4.font-title.caps
+              span.white 22H00
+              span  - Café Concerto
+            .h3.font-title.caps
+              a.link-black(href="#jan-sjoberg-danny-del-toro") Jan Sjöberg (SUE) & Danny Del Toro (ESP)
+        tr
+          td.align-top(style="width:15%")
+            img(src="/images/dia24.png")
+          td.align.top.pt3.pl0
+            .h4.font-title.caps
+              span.white 21H30
+              span  - Opening Act
+            .h3.font-title.caps.mb2
+              a.link-black(href="#batucadeiras") Batucadeiras (CV)
+            .h4.font-title.caps
+              span.white 22H00
+              span  - Auditório
+            .h3.font-title.caps.mb2 Laurence Jones (UK)
+            .h4.font-title.caps
+              span.white 23H25
+              span  - Auditório
+            .h3.font-title.caps Judy Blues Eyes (PT)
+            .h4.font-title.caps Convidado Especial: Rui Veloso
+        tr
+          td.align-top(style="width:15%")
+            img(src="/images/dia25.png")
+          td.align.top.pt3.pl0
+            .h4.font-title.caps
+              span.white 21H30
+              span  - Opening Act
+            .h3.font-title.caps.mb2 Swing Station (PT)
+            .h4.font-title.caps
+              span.white 22H00
+              span  - Auditório
+            .h3.font-title.caps.mb2 Doug MacLeod (USA)
+            .h4.font-title.caps
+              span.white 23H25
+              span  - Auditório
+            .h3.font-title.caps Travellin' Brothers (ESP)
+        tr
+          td.align-top(style="width:15%")
+            img(src="/images/dia26.png")
+          td.align.top.pt3.pl0
+            .h4.font-title.caps
+              span.white 15H00
+              span  - Blues Picnic
+            .h3.font-title.caps.mb2 The Johny Weirdo's Blues Experience (PT)
+            .h4.font-title.caps
+              span.white 16H00
+              span  - Blues Picnic
+            .h3.font-title.caps.mb2 Fireblue (PT)
+            .h4.font-title.caps
+              span.white 17H00
+              span  - Blues Picnic
+            .h3.font-title.caps.mb2 Midnight Club Blues Band (PT)
+            .h4.font-title.caps
+              span.white 18H00
+              span  - Blues Picnic
+            .h3.font-title.caps Vitor Bacalhau (PT)
 
-      each item in bands
-        a(href="/bandas/" + item.slug)
-          h2.h1.mb0=item.name
-        img(src="/images/bandas/" + item.pic).max-width-1
+    section.bg-bbbf-blue.px4.py3
+      each band in bands
+        .sixteen-nine(id=band.slug).mb2.pt1
+          header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
+            img(src="/images/bandas/"+band.slug+"-label.png", height="250").absolute.top-4.left-minus-4
+        .p.justify.relative.font-text.p1.pb3.mb4.border-bottom-dotted=band.info
+          a.block.absolute.right-0.bottom-0.mt3(href="#") Voltar ao Topo
 
     include ./includes/footer.jade

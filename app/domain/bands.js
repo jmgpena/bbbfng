@@ -16,6 +16,7 @@ module.exports = {
                     bandItem.pic  = row['pic'];
                     bandItem.banner  = row['banner'];
                     bandItem.slug = row['slug'];
+                    bandItem.info = row['info'];
 
                     return bandItem;
                 });
