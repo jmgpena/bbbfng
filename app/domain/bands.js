@@ -1,10 +1,14 @@
 'use strict';
 const db = require('../db.js');
 const _  = require('lodash');
+const md = require('markdown-it')({
+    html: true,
+    typographer: true
+});
 
 module.exports = {
     all: (locale) => {
-        return db.select().from('bands')
+        return db.select().from('bands').orderByRaw('dia, time ASC')
             .then((rows) => {
                 return _.map(rows, (row) => {
                     let bandItem = {};
@@ -16,7 +20,8 @@ module.exports = {
                     bandItem.pic  = row['pic'];
                     bandItem.banner  = row['banner'];
                     bandItem.slug = row['slug'];
-                    bandItem.info = row['info'];
+                    bandItem.info = md.render(row['info']);
+                    console.log(bandItem.info);
 
                     return bandItem;
                 });
