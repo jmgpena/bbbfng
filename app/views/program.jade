@@ -12,75 +12,75 @@ html(lang="en")
           td.pl3.align-top(style="width:20%")
             img(src="/images/dia23.png")
           td.align.top.pt3.pl0
-            .h4.font-title.caps
-              span.white 22H00
-              span  - Café Concerto
-            .h3.font-title.caps
-              a.link-black(href="#jan-sjoberg-danny-del-toro") Jan Sjöberg (SUE) & Danny Del Toro (ESP)
+            .h4.font-title
+              span.white=bands[0].time
+              span=" - " + bands[0].venue.toUpperCase()
+            .h3.font-title
+              a.link-black(href="#"+bands[0].slug)=bands[0].name.toUpperCase()
         tr
           td.pl3.align-top(style="width:15%")
             img(src="/images/dia24.png")
           td.align.top.pt3.pl0
-            .h4.font-title.caps
-              span.white 21H30
-              span  - Opening Act
-            .h3.font-title.caps.mb2
-              a.link-black(href="#batucadeiras") Batucadeiras (CV)
-            .h4.font-title.caps
-              span.white 22H00
-              span  - Auditório
-            .h3.font-title.caps.mb2
-              a.link-black(href="#laurence-jones") Laurence Jones (UK)
-            .h4.font-title.caps
-              span.white 23H25
-              span  - Auditório
-            .h3.font-title.caps
-               a.link-black(href="#judy-blue-eyes") Judy Blue Eyes (PT)
-            .h3.font-title.caps
-               a.link-black(href="#judy-blue-eyes") Convidado Especial: Rui Veloso
+            .h4.font-title
+              span.white=bands[1].time
+              span=" - " + bands[1].venue.toUpperCase()
+            .h3.font-title.mb2
+              a.link-black(href="#"+bands[1].slug)=bands[1].name.toUpperCase()
+            .h4.font-title
+              span.white=bands[2].time
+              span=" - " + bands[2].venue.toUpperCase()
+            .h3.font-title.mb2
+              a.link-black(href="#"+bands[2].slug)=bands[2].name.toUpperCase()
+            .h4.font-title
+              span.white=bands[3].time
+              span=" - " + bands[3].venue.toUpperCase()
+            .h3.font-title
+              a.link-black(href="#"+bands[3].slug)=bands[3].name.toUpperCase()
+            .h3.font-title
+               a.link-black(href="#judy-blue-eyes")="Convidado Especial: Rui Veloso".toUpperCase()
         tr
           td.pl3.align-top(style="width:15%")
             img(src="/images/dia25.png")
           td.align.top.pt3.pl0
-            .h4.font-title.caps
-              span.white 21H30
-              span  - Opening Act
-            .h3.font-title.caps.mb2
-              a.link-black(href="#swing-station") Swing Station (PT)
-            .h4.font-title.caps
-              span.white 22H00
-              span  - Auditório
-            .h3.font-title.caps.mb2
-              a.link-black(href="#doug-macleod") Doug MacLeod (USA)
-            .h4.font-title.caps
-              span.white 23H25
-              span  - Auditório
-            .h3.font-title.caps
-              a.link-black(href="#travelling-brothers") Travellin' Brothers (ESP)
+            .h4.font-title
+              span.white=bands[4].time
+              span=" - " + bands[4].venue.toUpperCase()
+            .h3.font-title.mb2
+              a.link-black(href="#"+bands[4].slug)=bands[4].name.toUpperCase()
+            .h4.font-title
+              span.white=bands[5].time
+              span=" - " + bands[5].venue.toUpperCase()
+            .h3.font-title.mb2
+              a.link-black(href="#"+bands[5].slug)=bands[5].name.toUpperCase()
+            .h4.font-title
+              span.white=bands[6].time
+              span=" - " + bands[6].venue.toUpperCase()
+            .h3.font-title
+              a.link-black(href="#"+bands[6].slug)=bands[6].name.toUpperCase()
         tr
           td.pl3.align-top(style="width:15%")
             img(src="/images/dia26.png")
           td.align.top.pt3.pl0
-            .h4.font-title.caps
-              span.white 15H00
-              span  - Blues Picnic
-            .h3.font-title.caps.mb2
-              a.link-black(href="#johny-weirdo") The Johny Weirdo's Blues Experience (PT)
-            .h4.font-title.caps
-              span.white 16H00
-              span  - Blues Picnic
-            .h3.font-title.caps.mb2
-              a.link-black(href="#fireblue") Fireblue (PT)
-            .h4.font-title.caps
-              span.white 17H00
-              span  - Blues Picnic
-            .h3.font-title.caps.mb2
-              a.link-black(href="#midnight-club-blues-band") Midnight Club Blues Band (PT)
-            .h4.font-title.caps
-              span.white 18H00
-              span  - Blues Picnic
-            .h3.font-title.caps
-              a.link-black(href="#vitor-bacalhau") Vitor Bacalhau (PT)
+            .h4.font-title
+              span.white=bands[7].time
+              span=" - " + bands[7].venue.toUpperCase()
+            .h3.font-title.mb2
+              a.link-black(href="#"+bands[7].slug)=bands[7].name.toUpperCase()
+            .h4.font-title
+              span.white=bands[8].time
+              span=" - " + bands[8].venue.toUpperCase()
+            .h3.font-title.mb2
+              a.link-black(href="#"+bands[8].slug)=bands[8].name.toUpperCase()
+            .h4.font-title
+              span.white=bands[9].time
+              span=" - " + bands[9].venue.toUpperCase()
+            .h3.font-title.mb2
+              a.link-black(href="#"+bands[9].slug)=bands[9].name.toUpperCase()
+            .h4.font-title
+              span.white=bands[10].time
+              span=" - " + bands[10].venue.toUpperCase()
+            .h3.font-title
+              a.link-black(href="#"+bands[10].slug)=bands[10].name.toUpperCase()
 
     section.bg-bbbf-blue.px4.py3
       each band in bands

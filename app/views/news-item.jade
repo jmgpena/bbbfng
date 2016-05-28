@@ -4,9 +4,10 @@ html(lang="en")
   body.container.bg-bbbf-black
     include ./includes/top-nav.jade
 
-    section.bg-white
-      .h2=item.title
-      img(src="/images/news/" + item.pic).max-width-1
-      div=item.body
+    section.bg-bbbf-blue.p3
+      .h2.font-title.mb2=item.title
+      img.left.mr2.mb2(src="/images/news/" + item.pic).max-width-1
+      .font-text.justify
+        !{item.body}
 
     include ./includes/footer.jade

@@ -35,6 +35,6 @@ html(lang="en")
                 a(href="/news/" + post.id).link-black=post.title
               a(href="/news/" + post.id)
                 img(src="/images/news/" + post.pic)
-              p.font-text=post.body
+              p.font-text.justify=post.body
 
     include ./includes/footer.jade

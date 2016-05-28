@@ -1,6 +1,10 @@
 'use strict';
 const db = require('../db.js');
 const _  = require('lodash');
+const md = require('markdown-it')({
+    html: true,
+    typographer: true
+});
 
 module.exports = {
     home: (locale) => {
@@ -34,6 +38,8 @@ module.exports = {
                 item.title  = row[0]['title_'+locale] || row[0]['title'];
                 item.body  = row[0]['body_'+locale] || row[0]['body'];
                 item.pic = row[0]['pic'];
+
+                item.body = md.render(item.body);
 
                 return item;
             })
