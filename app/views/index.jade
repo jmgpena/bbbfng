@@ -23,16 +23,16 @@ html(lang="en")
           Realizado no Fórum Cultural José Manuel Figueiredo, na Baixa da Banheira, o <strong>BB Blues Fest</strong> aposta sempre na qualidade do seu cartaz, <strong>apresentando os melhores nomes do Blues português e internacional</strong>, numa simbiose perfeita que celebra as raízes deste género musical.
 
         .table
-          h2.font-title.caps.black.table-cell.black.align-middle
-           a(href="/programa").link-black Consulte o programa desta 5ª Edição
+          h2.font-title.black.table-cell.black.align-middle
+           a(href="/programa").link-black="Consulte o programa desta 5ª Edição".toUpperCase()
           a(href="/programa").link-black
             img(src="/images/seta.png").table-cell
 
       .clearfix.mxn2.pb2
         each post in news
             .sm-col.sm-col-4.px2
-              h2.h1.font-title.mb0.black
-                a(href="/news/" + post.id).link-black=post.title
+              h2.h2.font-title.mb0.black
+                a(href="/news/" + post.id).link-black.font-title=post.title.toUpperCase()
               a(href="/news/" + post.id)
                 img(src="/images/news/" + post.pic)
               p.font-text.justify=post.body
