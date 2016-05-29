@@ -14,6 +14,19 @@ a.link-black:hover {
     text-decoration: none;
 }
 
+a.link-white {
+    color: white;
+}
+
+a.link-white:visited {
+    color: white;
+}
+
+a.link-white:hover {
+    color: black;
+    text-decoration: none;
+}
+
 .si-glyph-bubble-message-hi {
     width: 32px;
 }
