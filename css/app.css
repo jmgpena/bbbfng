@@ -79,8 +79,7 @@ a.link-white:hover {
 }
 
 .border-bbbf {
-    border-right: 2px dotted white;
-    border-left: 2px dotted white;
+    border-left: 1px dotted white;
 }
 
 .border-bottom-dotted {
