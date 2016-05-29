@@ -8,7 +8,7 @@ html(lang="en")
       ul
         each band in header
           li
-            a(href="/bandas/" + band.slug)
+            a(href="/programa#" + band.slug)
               .sixteen-nine
                 header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
                   img(src="/images/bandas/"+band.slug+"-label.png", height="300").absolute.top-4.left-minus-4
