@@ -21,6 +21,7 @@ module.exports = {
                     bandItem.banner  = row['banner'];
                     bandItem.slug = row['slug'];
                     bandItem.info = md.render(row['info']);
+                    bandItem.free = row['free'] == 1;
                     console.log(bandItem.info);
 
                     return bandItem;
