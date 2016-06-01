@@ -1,0 +1,13 @@
+doctype html
+html(lang="en")
+  include ./includes/head.jade
+  body.container.bg-bbbf-black
+    include ./includes/top-nav.jade
+
+    section.bg-white.container.px4.py2.bg-bbbf-blue
+      div.max-width-2
+        img(src="/images/home-banner-logo.png")
+      h2.font-title.white= "A apenas 25 minutos de Lisboa".toUpperCase()
+
+      iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3115.4715657317865!2d-9.048163483894864!3d38.66102926844573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1937b9d59fd1d3%3A0x1a3ae9d330be2094!2sF%C3%B3rum+Cultural+Jos%C3%A9+Manuel+Figueiredo!5e0!3m2!1sen!2sie!4v1464799780208",width="600",height="450",frameborder="0",style="border:0",allowfullscreen)
+    include ./includes/footer.jade
