@@ -22,6 +22,7 @@ module.exports = {
                     bandItem.slug = row['slug'];
                     bandItem.info = md.render(row['info']);
                     bandItem.free = row['free'] == 1;
+                    bandItem.dia = row['dia'];
                     console.log(bandItem.info);
 
                     return bandItem;
