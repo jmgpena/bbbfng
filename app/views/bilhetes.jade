@@ -4,17 +4,22 @@ html(lang="en")
   body.container.bg-bbbf-black
     include ./includes/top-nav.jade
 
-    section.bg-white.container.px4.py2.bg-bbbf-blue
+    section.bg-white.container.px4.py2.bg-bbbf-blue.font-text
       div.max-width-2
         img(src="/images/home-banner-logo.png")
-      :markdown-it
-        Pode adquir Bilhetes directamente no Forum Cultural José Manuel Figueiredo ou online,
-        através da Ticketline.
+      .font-text
+        :markdown-it
+          pode adquir bilhetes directamente no forum cultural josé manuel figueiredo ou online,
+          através da ticketline.
 
-        Contacto bilheteira: **Tel: 210 888 900**
+      a.block.h2.font-title.link-white.mb2(href="http://ticketline.sapo.pt/evento/BB-BLUES-FEST-13924",target="_blank") TICKELINE
 
-        Horário bilheteira: **Terça-feira a Sábado, das 14:30H às 19:30H**
+      .font-text
+        :markdown-it
+          Contacto bilheteira: **Tel: 210 888 900**
 
-        Email: **forum.cultural.jmf@mail.cm-moita.pt**
+          Horário bilheteira: **Terça-feira a Sábado, das 14:30H às 19:30H**
+
+          Email: **forum.cultural.jmf@mail.cm-moita.pt**
 
     include ./includes/footer.jade
