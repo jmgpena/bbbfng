@@ -34,7 +34,7 @@ html(lang="en")
               h2.h2.font-title.mb0.black
                 a(href="/news/" + post.id).link-black.font-title=post.title.toUpperCase()
               a(href="/news/" + post.id)
-                img(src="/images/news/" + post.pic)
+                img(src="/images/news/thumb-" + post.pic)
               p.font-text.justify=post.body
 
     include ./includes/footer.jade
