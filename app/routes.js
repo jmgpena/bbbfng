@@ -34,6 +34,8 @@ module.exports = [
     { method: 'GET', path: '/{languageCode}/local', handler: require('./actions/local.js') },
     { method: 'GET', path: '/bandas/{slug}', handler: require('./actions/band.js') },
     { method: 'GET', path: '/{languageCode}/bandas/{slug}', handler: require('./actions/band.js') },
+    { method: 'GET', path: '/imprensa', handler: require('./actions/press.js') },
+    { method: 'GET', path: '/{languageCode}/imprensa', handler: require('./actions/press.js') },
     // news
     { method: 'GET', path: '/news/{id}', handler: require('./actions/news-item.js') },
     { method: 'GET', path: '/{languageCode}/news/{id}', handler: require('./actions/news-item.js') },
