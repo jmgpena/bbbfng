@@ -12,7 +12,7 @@ html(lang="en")
               header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/home-banner.png")
         each band in header
           li
-            a(href="/programa#" + band.slug)
+            a(href="/#{languageCode}/programa#" + band.slug)
               .sixteen-nine
                 header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
                   img(src="/images/bandas/"+band.slug+"-label.png", height="300").absolute.top-4.left-minus-4
@@ -28,16 +28,16 @@ html(lang="en")
 
         .table
           h2.font-title.black.table-cell.black.align-middle
-           a(href="/programa").link-black="Consulte o programa desta 5ª Edição".toUpperCase()
-          a(href="/programa").link-black
+           a(href="/#{languageCode}/programa").link-black="Consulte o programa desta 5ª Edição".toUpperCase()
+          a(href="/#{languageCode}/programa").link-black
             img(src="/images/seta.png").table-cell
 
       .clearfix.mxn2.pb2
         each post in news
             .sm-col.sm-col-4.px2
               h2.h2.font-title.mb0.black
-                a(href="/news/" + post.id).link-black.font-title=post.title.toUpperCase()
-              a(href="/news/" + post.id)
+                a(href="/#{languageCode}/news/" + post.id).link-black.font-title=post.title.toUpperCase()
+              a(href="/#{languageCode}/news/" + post.id)
                 img(src="/images/news/thumb-" + post.pic)
               p.font-text.justify=post.body
 

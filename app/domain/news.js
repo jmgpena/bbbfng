@@ -35,8 +35,8 @@ module.exports = {
                 let item = {};
 
                 item = row[0];
-                item.title  = row[0]['title_'+locale] || row[0]['title'];
-                item.body  = row[0]['body_'+locale] || row[0]['body'];
+                item.title  = row[0]['title_'+locale] || row[0]['title_pt'];
+                item.body  = row[0]['body_'+locale] || row[0]['body_pt'];
                 item.pic = row[0]['pic'];
 
                 item.body = md.render(item.body);

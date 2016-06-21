@@ -13,17 +13,18 @@ module.exports = {
                 return _.map(rows, (row) => {
                     let bandItem = {};
 
-                    bandItem.name = row['name_'+locale] || row['name'];
+                    //bandItem.name = row['name_'+locale] || row['name'];
+                    bandItem.name = row['name'];
                     bandItem.date = row['date_'+locale] || row['date'];
                     bandItem.venue = row['venue_'+locale] || row['venue'];
+                    bandItem.info = row['info_'+locale] || row['info'];
+                    bandItem.info = md.render(bandItem.info);
                     bandItem.time  = row['time'];
                     bandItem.pic  = row['pic'];
                     bandItem.banner  = row['banner'];
                     bandItem.slug = row['slug'];
-                    bandItem.info = md.render(row['info']);
                     bandItem.free = row['free'] == 1;
                     bandItem.dia = row['dia'];
-                    console.log(bandItem.info);
 
                     return bandItem;
                 });

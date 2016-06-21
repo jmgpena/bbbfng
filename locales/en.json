@@ -1,6 +1,13 @@
 {
 	"Mensagem": "Message",
-	"Novidades": "Novidades",
-	"Programa": "Programa",
-	"Histórico": "Histórico"
+	"Novidades": "News",
+	"Programa": "Program",
+	"Histórico": "History",
+	"Início": "Home",
+	"Como Chegar": "Info",
+	"Voltar ao Topo": "Back to Top",
+	"ORGANIZAÇÃO E MEDIA": "ORGANIZATION & MEDIA",
+	"PÁGINA": "PAGE",
+	"GRUPO": "GROUP",
+  "Bilhetes": "Tickets"
 }
