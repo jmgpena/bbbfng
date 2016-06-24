@@ -21,6 +21,7 @@ module.exports = {
                         'length': 122,
                         'separator': /,? +/
                     });
+                    newsItem.body = md.render(newsItem.body);
                     newsItem.pic   = row['pic'];
                     newsItem.id    = row['id'];
 
