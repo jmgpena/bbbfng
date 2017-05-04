@@ -4,13 +4,13 @@
   "description": "",
   "main": "app.js",
   "engines": {
-    "node": "5.4.0"
+    "node": "6.10.2"
   },
   "scripts": {
-    "pm2:dev": "pm2-dev run pm2-dev.json",
-    "build:css": "postcss -c postcss.config.json",
+    "pm2:dev": "pm2-dev start pm2-dev.json",
+    "build:css": "postcss css/app.css -u postcss-import -u postcss-url -u postcss-cssnext -u postcss-browser-reporter -u postcss-reporter -o public/stylesheets/app.css",
     "watch:css": "watch 'npm run build:css' css/ -d",
-    "dev": "parallelshell 'npm run pm2:dev -s' 'npm run watch:css' 'browser-sync --proxy http://localhost:3000 --port 7000'",
+    "dev": "parallelshell 'npm run pm2:dev -s' 'npm run watch:css' 'browser-sync start --proxy http://localhost:3000 --port 7000'",
     "prod": "pm2 start pm2-prod.json",
     "test": "echo \"Warning: no tests yet\" && exit 0",
     "build": "gulp build"
@@ -20,32 +20,32 @@
   "devDependencies": {
     "basscss": "7.1.1",
     "basscss-background-images": "0.0.10",
-    "browser-sync": "2.11.1",
+    "browser-sync": "2.18.8",
     "gulp": "3.9.1",
     "gulp-nodemon": "2.0.6",
     "gulp-postcss": "6.1.0",
     "gulp-sourcemaps": "1.6.0",
     "parallelshell": "2.0.0",
-    "postcss": "5.0.14",
-    "postcss-browser-reporter": "0.4.0",
-    "postcss-cli": "2.5.0",
-    "postcss-cssnext": "2.4.0",
-    "postcss-import": "8.0.2",
-    "postcss-reporter": "1.3.1",
-    "postcss-url": "5.1.1",
-    "watch": "0.17.1"
+    "postcss": "5.2.17",
+    "postcss-browser-reporter": "0.5.0",
+    "postcss-cli": "3.1.1",
+    "postcss-cssnext": "2.10.0",
+    "postcss-import": "9.1.0",
+    "postcss-reporter": "3.0.0",
+    "postcss-url": "6.0.4",
+    "watch": "1.0.2"
   },
   "dependencies": {
-    "hapi": "13.0.0",
-    "hapi-i18n": "1.0.2",
-    "inert": "3.2.0",
+    "hapi": "16.1.1",
+    "hapi-i18n": "1.0.3",
+    "inert": "4.2.0",
     "jade": "1.11.0",
-    "jstransformer-markdown-it": "^0.2.3",
-    "knex": "0.10.0",
-    "lodash": "^4.7.0",
-    "markdown-it": "^6.0.2",
-    "pm2": "1.0.2",
-    "sqlite3": "3.1.1",
-    "vision": "4.0.1"
+    "jstransformer-markdown-it": "2.0.0",
+    "knex": "0.12.9",
+    "lodash": "^4.17.4",
+    "markdown-it": "^8.3.1",
+    "pm2": "2.4.5",
+    "sqlite3": "3.1.8",
+    "vision": "4.1.1"
   }
 }

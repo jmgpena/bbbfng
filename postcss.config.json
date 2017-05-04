@@ -1,11 +1,9 @@
-{
-  "use": [
+module.exports = {
+  plugins: [
     "postcss-import",
     "postcss-url",
     "postcss-cssnext",
     "postcss-browser-reporter",
     "postcss-reporter"
-  ],
-  "input": "css/app.css",
-  "output": "public/stylesheets/style.css"
+  ]
 }

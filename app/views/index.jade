@@ -39,7 +39,6 @@ html(lang="en")
                 a(href="/#{languageCode}/news/" + post.id).link-black.font-title=post.title.toUpperCase()
               a(href="/#{languageCode}/news/" + post.id)
                 img(src="/images/news/thumb-" + post.pic)
-              p.font-text.justify
-                !{post.body}
+              p.font-text.justify !{post.body}
 
     include ./includes/footer.jade
