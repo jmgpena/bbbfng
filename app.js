@@ -20,7 +20,7 @@ server.register(require('vision'), (err) => {
     throw err;
   }
   server.views({
-    engines: { jade: require('jade')},
+    engines: { pug: require('pug')},
     path: __dirname + '/app/views',
     isCached: false,
     compileOptions: {
@@ -52,7 +52,7 @@ server.register({
   }
 });
 
-// add i18n translation function to all jade requests
+// add i18n translation function to all pug requests
 server.ext('onPreResponse', (request, reply) => {
   const response = request.response;
   if (response.variety === 'view') {

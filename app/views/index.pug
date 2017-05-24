@@ -1,8 +1,8 @@
 doctype html
 html(lang="en")
-  include ./includes/head.jade
+  include ./includes/head.pug
   body.container.bg-black
-    include ./includes/top-nav.jade
+    include ./includes/top-nav.pug
 
     div.my-slider
       ul
@@ -41,4 +41,4 @@ html(lang="en")
                 img(src="/images/news/thumb-" + post.pic)
               p.font-text.justify !{post.body}
 
-    include ./includes/footer.jade
+    include ./includes/footer.pug

@@ -1,8 +1,8 @@
 doctype html
 html(lang="en")
-  include ./includes/head.jade
+  include ./includes/head.pug
   body.container.bg-bbbf-black
-    include ./includes/top-nav.jade
+    include ./includes/top-nav.pug
 
     section.bg-bbbf-blue.p3
       .h2.font-title.mb2=item.title.toUpperCase()
@@ -10,4 +10,4 @@ html(lang="en")
       .font-text
         !{item.body}
 
-    include ./includes/footer.jade
+    include ./includes/footer.pug

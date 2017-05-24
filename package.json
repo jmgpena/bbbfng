@@ -39,12 +39,12 @@
     "hapi": "16.1.1",
     "hapi-i18n": "1.0.3",
     "inert": "4.2.0",
-    "jade": "1.11.0",
     "jstransformer-markdown-it": "2.0.0",
     "knex": "0.12.9",
     "lodash": "^4.17.4",
     "markdown-it": "^8.3.1",
     "pm2": "2.4.5",
+    "pug": "^2.0.0-rc.1",
     "sqlite3": "3.1.8",
     "vision": "4.1.1"
   }
