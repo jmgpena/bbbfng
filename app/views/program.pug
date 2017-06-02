@@ -36,8 +36,6 @@ html(lang="en")
               span=" - " + bands[3].venue.toUpperCase()
             .h3.font-title
               a.link-black(href="#"+bands[3].slug)=bands[3].name.toUpperCase()
-            .h3.font-title
-               a.link-black(href="#judy-blue-eyes")="Convidado Especial: Rui Veloso".toUpperCase()
         tr
           td.pl3.align-top(style="width:15%")
             img(src="/images/dia25.png")
@@ -71,16 +69,6 @@ html(lang="en")
               span=" - " + bands[8].venue.toUpperCase()
             .h3.font-title.mb2
               a.link-black(href="#"+bands[8].slug)=bands[8].name.toUpperCase()
-            .h4.font-title
-              span.white=bands[9].time
-              span=" - " + bands[9].venue.toUpperCase()
-            .h3.font-title.mb2
-              a.link-black(href="#"+bands[9].slug)=bands[9].name.toUpperCase()
-            .h4.font-title
-              span.white=bands[10].time
-              span=" - " + bands[10].venue.toUpperCase()
-            .h3.font-title
-              a.link-black(href="#"+bands[10].slug)=bands[10].name.toUpperCase()
 
     section.bg-bbbf-blue.px4.py3
       each band in bands
