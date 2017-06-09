@@ -38,3 +38,4 @@ node_modules
 .DS_Store
 /public/stylesheets/app.css
 /public/stylesheets/app.css.map
+/public/stylesheets/style.css
