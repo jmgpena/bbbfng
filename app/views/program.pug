@@ -74,7 +74,7 @@ html(lang="en")
       each band in bands
         .sixteen-nine(id=band.slug).mb2.pt1
           header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
-            img(src="/images/bandas/"+band.slug+"-label.png", height="250").absolute.top-4.left-minus-4
+            //- img(src="/images/bandas/"+band.slug+"-label.png", height="250").absolute.top-4.left-minus-4
         .p.font-text.p1 !{band.info}
         .h2.relative.bold.white.font-title.pb3.mb3.border-bottom-dotted=band.time + " - " + band.venue.toUpperCase()
           if band.free
