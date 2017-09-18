@@ -10,10 +10,11 @@
     "pm2:dev": "pm2-dev start pm2-dev.json",
     "build:css": "postcss css/app.css -u postcss-import -u postcss-url -u postcss-cssnext -u postcss-browser-reporter -u postcss-reporter -o public/stylesheets/app.css",
     "watch:css": "watch 'npm run build:css' css/ -d",
-    "dev": "parallelshell 'npm run pm2:dev -s' 'npm run watch:css' 'browser-sync start --proxy http://localhost:3000 --port 7000'",
+    "dev": "run-p 'pm2:dev -s' 'watch:css' 'bsync'",
     "prod": "pm2 start pm2-prod.json",
     "test": "echo \"Warning: no tests yet\" && exit 0",
-    "build": "gulp build"
+    "build": "gulp build",
+    "bsync": "browser-sync start --proxy http://localhost:3000 --port 7000"
   },
   "author": "jmgpena",
   "license": "ISC",
@@ -25,7 +26,7 @@
     "gulp-nodemon": "2.0.6",
     "gulp-postcss": "6.1.0",
     "gulp-sourcemaps": "1.6.0",
-    "parallelshell": "2.0.0",
+    "npm-run-all": "^4.1.1",
     "postcss": "5.2.17",
     "postcss-browser-reporter": "0.5.0",
     "postcss-cli": "3.1.1",
