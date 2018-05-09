@@ -8,7 +8,7 @@ const md = require('markdown-it')({
 
 module.exports = {
     all: (locale) => {
-        return db.select().from('bands').orderByRaw('dia, time ASC')
+        return db.select().from('bands').orderByRaw('id')
             .then((rows) => {
                 return _.map(rows, (row) => {
                     let bandItem = {};
