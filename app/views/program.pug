@@ -10,7 +10,8 @@ html(lang="en")
       table.border-bottom-dotted.pb4
         tr
           td.pl3.align-top(style="width:20%")
-            img(src="/images/dia22.png")
+            //img(src="/images/dia22.png")
+            .day=bands[0].dia+"."
           td.align.top.pt3.pl0
             .h2.font-title
               span.white=bands[0].time
@@ -19,7 +20,8 @@ html(lang="en")
               a.link-black(href="#"+bands[0].slug)=bands[0].name.toUpperCase()
         tr
           td.pl3.align-top(style="width:15%")
-            img(src="/images/dia23.png")
+            //img(src="/images/dia23.png")
+            .day=bands[1].dia+"."
           td.align.top.pt3.pl0
             .h2.font-title
               span.white=bands[1].time
@@ -33,7 +35,8 @@ html(lang="en")
               a.link-black(href="#"+bands[2].slug)=bands[2].name.toUpperCase()
         tr
           td.pl3.align-top(style="width:15%")
-            img(src="/images/dia24.png")
+            //img(src="/images/dia24.png")
+            .day=bands[3].dia+"."
           td.align.top.pt3.pl0
             .h2.font-title
               span.white=bands[3].time
@@ -47,7 +50,8 @@ html(lang="en")
               a.link-black(href="#"+bands[4].slug)=bands[4].name.toUpperCase()
         tr
           td.pl3.align-top(style="width:15%")
-            img(src="/images/dia25.png")
+            //img(src="/images/dia25.png")
+            .day=bands[5].dia+"."
           td.align.top.pt3.pl0
             .h2.font-title
               span.white=bands[5].time
@@ -76,7 +80,7 @@ html(lang="en")
           header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
             //- img(src="/images/bandas/"+band.slug+"-label.png", height="250").absolute.top-4.left-minus-4
         .p.font-text.p1 !{band.info}
-        .h2.relative.bold.white.font-title.pb3.mb3.border-bottom-dotted=band.time + " - " + band.venue.toUpperCase()
+        .h2.relative.bold.white.font-title.pb3.mb3.border-bottom-dotted=band.time + " - " + band.venue.toUpperCase() + " - " + band.name.toUpperCase()
           if band.free
             if (band.dia == 25)
               .block.h5.black.absolute.left-0.bottom-0.bold Espetáculo gratuito

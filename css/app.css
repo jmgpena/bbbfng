@@ -86,3 +86,12 @@ a.link-white:hover {
     border-bottom: 2px dotted black;
 }
 
+.day {
+    font-family: 'Oswald', sans-serif;
+    font-size: 90px;
+    font-weight: bolder;
+    color: white;
+    text-stroke: 6px black;
+    -webkit-text-stroke: 6px black;
+    text-align: right;
+}
