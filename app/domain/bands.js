@@ -14,7 +14,7 @@ module.exports = {
                     let bandItem = {};
 
                     //bandItem.name = row['name_'+locale] || row['name'];
-                    bandItem.name = row['name'];
+                    bandItem.name = row['name_'+locale] || row['name'];
                     bandItem.date = row['date_'+locale] || row['date'];
                     bandItem.venue = row['venue_'+locale] || row['venue'];
                     bandItem.info = row['info_'+locale] || row['info'];
