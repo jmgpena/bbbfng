@@ -4,6 +4,10 @@
 const path   = require('path');
 const hapi   = require('hapi');
 const routes = require('./app/routes.js');
+const md = require('markdown-it')({
+    html: true,
+    typographer: true
+});
 const server = new hapi.Server({
     debug: {
         request: ['error']
@@ -58,6 +62,7 @@ server.ext('onPreResponse', (request, reply) => {
   if (response.variety === 'view') {
     let context = response.source.context;
     context.__ = request.i18n.__;
+    context.md = md;
   }
   return reply.continue();
 });
