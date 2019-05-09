@@ -7,26 +7,28 @@ html(lang="en")
     section.bg-white.container.px4.py2.bg-bbbf-blue.font-text
       div.max-width-2
         img(src="/images/logo.png")
-      //- .font-text
-      //-   :markdown-it
-      //-     # Até às 15:00 to dia 1 de Junho
-
-      //-     Poderá adquiri-los diretamente online, através da ticketline (e nos seus postos de venda aderentes).
-      //- .table
-      //-   h2.font-title.black.table-cell.black.align-middle
-      //-     a.link-black(href="https://ticketline.sapo.pt/evento/bb-blues-fest-35098") LINK: TICKETLINE
-      //-   a.link-black(href="https://ticketline.sapo.pt/evento/bb-blues-fest-35098")
-      //-     img(src="/images/seta.png").table-cell
-
-      //- .table
-      //-   h2.font-title.black.table-cell.black.align-middle
-      //-     a.link-black(href="http://ticketline.sapo.pt/pagina/postosdevenda")="LINK: Postos de Venda Aderentes".toUpperCase()
-      //-   a.link-black(href="http://ticketline.sapo.pt/pagina/postosdevenda")
-      //-     img(src="/images/seta.png").table-cell
-
-      .mt3.font-text
-        //h2.font-title Fórum Cultural José Manuel Figueiredo
+      .font-text
         :markdown-it
-          ## Informação disponível brevemente...
+            # 
+
+            Bilhetes disponíveis na bilheteira do Fórum Cultural José Manuel Figueiredo e na Rede
+            Ticketline (nos seus postos de venda, parceiros e online, em [www.ticketline.pt](https://ticketline.sapo.pt/evento/bb-blues-fest-41348))
+
+      .table
+        h2.font-title.black.table-cell.black.align-middle
+          a.link-black(href="https://ticketline.sapo.pt/evento/bb-blues-fest-41348") LINK: TICKETLINE
+        a.link-black(href="https://ticketline.sapo.pt/evento/bb-blues-fest-41348")
+          img(src="/images/seta.png").table-cell
+
+      .table
+        h2.font-title.black.table-cell.black.align-middle
+          a.link-black(href="http://ticketline.sapo.pt/pagina/postosdevenda")="LINK: Postos de Venda Aderentes".toUpperCase()
+        a.link-black(href="http://ticketline.sapo.pt/pagina/postosdevenda")
+          img(src="/images/seta.png").table-cell
+
+      //- .mt3.font-text
+      //-   //h2.font-title Fórum Cultural José Manuel Figueiredo
+      //-   :markdown-it
+      //-     ## Informação disponível brevemente...
 
     include ./includes/footer.pug

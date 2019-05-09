@@ -12,4 +12,4 @@ before_install:
 after_success:
 - npm run build
 - rsync -rv --delete --exclude 'node_modules' --exclude '.git' -e "ssh -i deploy_key" . jmgpena@vps.jmgpena.net:~/bbbfng
-- ssh -i deploy_key jmgpena@vps.jmgpena.net 'cd bbbfng; pm2 delete all; npm run prod'
+- ssh -i deploy_key jmgpena@vps.jmgpena.net 'cd bbbfng; nvm use 8.5; pm2 delete all; npm run prod'
