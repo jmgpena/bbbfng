@@ -82,10 +82,10 @@ html(lang="en")
         .p.font-text.p1 !{band.info}
         .h2.relative.bold.white.font-title.pb3.mb3.border-bottom-dotted=band.time + " - " + band.venue.toUpperCase() + " - " + band.name.toUpperCase()
           if band.free
-            if (band.dia == 3)
+            if (band.dia == 2)
               .block.h5.black.absolute.left-0.bottom-0.bold Espetáculo gratuito
             else
-              .block.h5.black.absolute.left-0.bottom-0.bold Espetáculo gratuito, Audiência limitada à capacidade máxima da sala.
+              .block.h5.black.absolute.left-0.bottom-0.bold Espetáculo gratuito
           else
             a.block.absolute.left-0.bottom-0.link-black.h5.bold(href="/bilhetes") Bilheteira
           a.block.absolute.right-0.bottom-0.mt3.link-white.h5.bold(href="#")= __("Voltar ao Topo")
