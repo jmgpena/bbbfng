@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "engines": {
-    "node": "8.5.0"
+    "node": "12.18.4"
   },
   "scripts": {
     "pm2:dev": "pm2-dev start pm2-dev.json",
