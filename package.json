@@ -42,7 +42,7 @@
     "hapi-i18n": "1.0.3",
     "inert": "4.2.0",
     "jstransformer-markdown-it": "2.0.0",
-    "knex": "0.21.6",
+    "knex": "0.19.5",
     "lodash": "^4.17.4",
     "markdown-it": "^8.3.1",
     "pm2": "2.9.1",
