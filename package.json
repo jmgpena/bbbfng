@@ -23,7 +23,7 @@
     "basscss": "7.1.1",
     "basscss-background-images": "0.0.10",
     "browser-sync": "2.18.8",
-    "gulp": "3.9.1",
+    "gulp": "4.0.0",
     "gulp-nodemon": "2.0.6",
     "gulp-postcss": "6.1.0",
     "gulp-sourcemaps": "1.6.0",

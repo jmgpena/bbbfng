@@ -35,7 +35,12 @@ var buildCss = function() {
     .pipe(gulp.dest('public/stylesheets'));
 };
 
-gulp.task('development', ['css'], function() {
+gulp.task('css', (done) => {
+    buildCss();
+    done();
+});
+
+gulp.task('development', gulp.series('css', function() {
   browserSync.init(null, {
     proxy: {
       target: 'http://localhost:3000',
@@ -70,15 +75,14 @@ gulp.task('development', ['css'], function() {
     });
   });
   gulp.watch('css/**/*.css', ['dev-css']);
-});
+}));
 
 gulp.task('dev-css', function() {
   buildCss().pipe(browserSync.stream({match: '**/*.css'}));
 });
 
-gulp.task('css', buildCss);
-
-gulp.task('default', ['development']);
-gulp.task('build', ['css'], () => {
-  process.exit(0);
-});
+gulp.task('default', gulp.series('development'));
+gulp.task('build', gulp.series('css', (done) => {
+    done();
+    process.exit(0);
+}));
