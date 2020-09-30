@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "engines": {
-    "node": "12.18.4"
-  },
   "scripts": {
     "pm2:dev": "pm2-dev start pm2-dev.json",
     "build:css": "postcss css/app.css -u postcss-import -u postcss-url -u postcss-cssnext -u postcss-browser-reporter -u postcss-reporter -o public/stylesheets/app.css",
@@ -47,7 +44,7 @@
     "markdown-it": "^8.3.1",
     "pm2": "2.9.1",
     "pug": "^2.0.0-rc.1",
-    "sqlite3": "5.0.0",
+    "sqlite3": "4.2.0",
     "vision": "4.1.1"
   }
 }

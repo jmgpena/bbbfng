@@ -2,4 +2,4 @@
 
 with pkgs;
 
-mkShell { buildInputs = [ nodejs ]; }
+mkShell { buildInputs = [ nodejs-14_x ]; }
