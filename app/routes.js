@@ -30,6 +30,8 @@ module.exports = [
     { method: 'GET', path: '/{languageCode}/historico', handler: require('./actions/history.js') },
     { method: 'GET', path: '/bilhetes', handler: require('./actions/bilhetes.js') },
     { method: 'GET', path: '/{languageCode}/bilhetes', handler: require('./actions/bilhetes.js') },
+    { method: 'GET', path: '/covid', handler: require('./actions/covid.js') },
+    { method: 'GET', path: '/{languageCode}/covid', handler: require('./actions/covid.js') },
     { method: 'GET', path: '/local', handler: require('./actions/local.js') },
     { method: 'GET', path: '/{languageCode}/local', handler: require('./actions/local.js') },
     { method: 'GET', path: '/bandas/{slug}', handler: require('./actions/band.js') },

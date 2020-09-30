@@ -1,0 +1,14 @@
+doctype html
+html(lang="en")
+  include ./includes/head.pug
+  body.container.bg-bbbf-black
+    include ./includes/top-nav.pug
+
+    section.bg-white.container.px4.py2.bg-bbbf-blue.font-text
+      div.max-width-2
+        img(src="/images/logo.png")
+      .font-text
+        :markdown-it
+            Mais informação brevemente
+
+    include ./includes/footer.pug
