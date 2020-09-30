@@ -1,6 +1,8 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const pm2 = require('pm2');
+const postcss    = require('gulp-postcss');
+const sourcemaps = require('gulp-sourcemaps');
 
 // stop pm2 app on exiting gulp
 process.stdin.resume();
@@ -17,30 +19,27 @@ process.on('SIGINT', () => {
   });
 });
 
-// build the css
-var buildCss = function() {
-  var postcss    = require('gulp-postcss');
-  var sourcemaps = require('gulp-sourcemaps');
-  var processors = [
-    require('postcss-import'),
-    require('postcss-url'),
-    require('postcss-cssnext'),
-    require('postcss-browser-reporter'),
-    require('postcss-reporter')
-  ];
-  return gulp.src('css/**/*.css')
-    .pipe(sourcemaps.init())
-    .pipe(postcss(processors))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('public/stylesheets'));
+
+function css() {
+    var processors = [
+        require('postcss-import'),
+        require('postcss-url'),
+        require('postcss-cssnext'),
+        require('postcss-browser-reporter'),
+        require('postcss-reporter')
+    ];
+    return gulp.src('css/**/*.css')
+        .pipe(sourcemaps.init())
+        .pipe(postcss(processors))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('public/stylesheets'));
 };
 
-gulp.task('css', (done) => {
-    buildCss();
-    done();
-});
+function dev_css() {
+  css().pipe(browserSync.stream({match: '**/*.css'}));
+};
 
-gulp.task('development', gulp.series('css', function() {
+function pm2_dev(done) {
   browserSync.init(null, {
     proxy: {
       target: 'http://localhost:3000',
@@ -74,15 +73,19 @@ gulp.task('development', gulp.series('css', function() {
       });
     });
   });
-  gulp.watch('css/**/*.css', ['dev-css']);
-}));
+  gulp.watch('css/**/*.css', dev-css);
+};
 
-gulp.task('dev-css', function() {
-  buildCss().pipe(browserSync.stream({match: '**/*.css'}));
-});
-
-gulp.task('default', gulp.series('development'));
-gulp.task('build', gulp.series('css', (done) => {
+function exit(done) {
     done();
     process.exit(0);
-}));
+}
+
+var build = gulp.series(css,exit);
+var dev = gulp.series(css, pm2_dev);
+
+exports.css = css;
+exports.build = build;
+exports.dev = dev;
+exports.default = dev;
+
