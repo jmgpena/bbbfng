@@ -6,8 +6,8 @@
   "scripts": {
     "pm2:dev": "pm2-dev start pm2-dev.json",
     "build:css": "postcss css/app.css -u postcss-import -u postcss-url -u postcss-cssnext -u postcss-browser-reporter -u postcss-reporter -o public/stylesheets/app.css",
-    "watch:css": "watch 'npm run build:css' css/ -d",
-    "dev": "run-p 'pm2:dev -s' 'watch:css' 'bsync'",
+    "watch:css": "watch \"npm run build:css\" css/ -d",
+    "dev": "run-p pm2:dev watch:css bsync",
     "prod": "pm2 start pm2-prod.json",
     "prod:stop": "pm2 delete all",
     "test": "echo \"Warning: no tests yet\" && exit 0",
