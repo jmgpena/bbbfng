@@ -23,6 +23,13 @@ module.exports = [
           }
       }
     },
+    { method: 'GET', path: '/docs/{p*}',
+      handler: {
+          directory: {
+              path: 'public/docs'
+          }
+      }
+    },
     // bands
     { method: 'GET', path: '/programa', handler: require('./actions/program.js') },
     { method: 'GET', path: '/{languageCode}/programa', handler: require('./actions/program.js') },
