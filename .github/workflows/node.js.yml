@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -39,3 +39,5 @@ jobs:
           mkdir -p ~/.ssh && echo "$SSH_PRIVATE_KEY" > $HOME/.ssh/deploy_key && chmod 600 $HOME/.ssh/deploy_key
           rsync -rv --delete --exclude "node_modules" --exclude ".git" -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" . ${REMOTE_USER}@${REMOTE_HOST}:~/bbbfng
           echo "Deploy finished!"
+          echo "Restarting"
+          ssh -i $HOME/.ssh/deploy_key ${REMOTE_USER}@${REMOTE_HOST} 'cd bbbfng; npm run prod:stop; npm run prod'
