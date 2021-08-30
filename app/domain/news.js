@@ -8,42 +8,36 @@ const md = require('markdown-it')({
 
 module.exports = {
     home: (locale) => {
-        return db.select().from('news').orderBy('date', 'desc').limit(3)
-            .then((rows) => {
-                return _.map(rows, (row) => {
-                    let newsItem = {};
+        const rows = db.prepare('SELECT * FROM news ORDER BY date DESC LIMIT 3').all();
+        return _.map(rows, (row) => {
+            let newsItem = {};
 
-                    newsItem.title = _.truncate(row['title_'+locale] || row['title_pt'], {
-                        'length': 38,
-                        'separator': ' '
-                    });
-                    newsItem.body   = _.truncate(row['body_'+locale] || row['body_pt'], {
-                        'length': 122,
-                        'separator': /,? +/
-                    });
-                    newsItem.body = md.render(newsItem.body);
-                    newsItem.pic   = row['pic'];
-                    newsItem.id    = row['id'];
+            newsItem.title = _.truncate(row['title_'+locale] || row['title_pt'], {
+                'length': 38,
+                'separator': ' '
+            });
+            newsItem.body   = _.truncate(row['body_'+locale] || row['body_pt'], {
+                'length': 122,
+                'separator': /,? +/
+            });
+            newsItem.body = md.render(newsItem.body);
+            newsItem.pic   = row['pic'];
+            newsItem.id    = row['id'];
 
-                    return newsItem;
-                });
-            })
-            .catch((error) => { console.log(error); });
+            return newsItem;
+        });
     },
     item: (id, locale) => {
-        return db.select().from('news').where({ id: id })
-            .then((row) => {
-                let item = {};
+        const row = db.prepare('SELECT * FROM news WHERE id = ?').get(id);
+        let item = {};
 
-                item = row[0];
-                item.title  = row[0]['title_'+locale] || row[0]['title_pt'];
-                item.body  = row[0]['body_'+locale] || row[0]['body_pt'];
-                item.pic = row[0]['pic'];
+        item = row;
+        item.title  = row['title_'+locale] || row['title_pt'];
+        item.body  = row['body_'+locale] || row['body_pt'];
+        item.pic = row['pic'];
 
-                item.body = md.render(item.body);
+        item.body = md.render(item.body);
 
-                return item;
-            })
-            .catch((error) => { console.log(error); });
+        return item;
     }
 };

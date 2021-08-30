@@ -1,7 +1,6 @@
 'use strict';
 
-const config = require('../knexfile.js');
-const knex = require('knex')(config['bbbf']);
+const Database = require('better-sqlite3');
+const db = new Database('bbbf.sqlite3');
 
-module.exports = knex;
-
+module.exports = db;

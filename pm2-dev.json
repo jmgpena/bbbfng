@@ -2,6 +2,6 @@
     "name": "bbbfng",
     "script": "app.js",
     "node_args": ["--harmony"],
-    "watch": ["app.js", "views"],
+    "watch": ["app.js", "views", "app"],
     "ignore_watch": ["flycheck*", ".#*", "public", ".tern-port", "css", ".git", "node_modules"]
 }
