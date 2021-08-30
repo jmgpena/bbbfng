@@ -30,12 +30,12 @@ jobs:
     - run: npm run build --if-present
     # - run: npm test
     - name: Deploy
-        env:
-            SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-            REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
-            REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-            run: |
-                echo "Deploying app"
-                mkdir -p ~/.ssh && echo "$SSH_PRIVATE_KEY" > $HOME/.ssh/deploy_key && chmod 600 $HOME/.ssh/deploy_key
-                rsync -rv --delete --exclude "node_modules" --exclude ".git" -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" . ${REMOTE_USER}@${REMOTE_HOST}:~/bbbfng
-                echo "Deploy finished!"
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+      run: |
+          echo "Deploying app"
+          mkdir -p ~/.ssh && echo "$SSH_PRIVATE_KEY" > $HOME/.ssh/deploy_key && chmod 600 $HOME/.ssh/deploy_key
+          rsync -rv --delete --exclude "node_modules" --exclude ".git" -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" . ${REMOTE_USER}@${REMOTE_HOST}:~/bbbfng
+          echo "Deploy finished!"
