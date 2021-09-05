@@ -13,7 +13,11 @@ html(lang="en")
         li
             a(href="/"+languageCode+"/programa")
             .sixteen-nine
-              header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/bandas/2019-bbbf-all-stars-banner.jpg)")
+              header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/facebook-2-2021.jpg)")
+        li
+            a(href="/"+languageCode+"/programa")
+            .sixteen-nine
+              header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/facebook-3-2021.jpg)")
         //- each band in header
         //-   li
         //-     a(href="/"+languageCode+"/programa#" + band.slug)
@@ -36,7 +40,7 @@ html(lang="en")
       .clearfix.mxn2.pb2
         each post in news
             .sm-col.sm-col-4.px2
-              h2.h2.font-title.mb0.black
+              h4.h4.font-title.mb0.black
                 a(href="/"+languageCode+"/news/" + post.id).link-black.font-title=post.title.toUpperCase()
               a(href="/"+languageCode+"/news/" + post.id)
                 img(src="/images/news/thumb-" + post.pic)

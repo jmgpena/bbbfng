@@ -13,11 +13,11 @@ module.exports = {
             let newsItem = {};
 
             newsItem.title = _.truncate(row['title_'+locale] || row['title_pt'], {
-                'length': 38,
+                'length': 80,
                 'separator': ' '
             });
             newsItem.body   = _.truncate(row['body_'+locale] || row['body_pt'], {
-                'length': 122,
+                'length': 100,
                 'separator': /,? +/
             });
             newsItem.body = md.render(newsItem.body);
