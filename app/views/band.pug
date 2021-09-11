@@ -4,9 +4,9 @@ html(lang="en")
   body.container.bg-bbbf-black
     include ./includes/top-nav.pug
 
-    section.bg-white
-      .h2=band.name
-      img(src="/images/bandas/" + band.pic).max-width-1
-      div=band.info
+    section.bg-bbbf-blue.py3.px4
+      .h1.font-title.mb2.white=band.name.toUpperCase()
+      img.left.mr2.mb2(src="/images/bandas/" + band.pic).max-width-2
+      .font-text !{band.info}
 
     include ./includes/footer.pug

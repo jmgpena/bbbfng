@@ -18,12 +18,15 @@ html(lang="en")
             a(href="/"+languageCode+"/programa")
             .sixteen-nine
               header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/facebook-3-2021.jpg)")
-        //- each band in header
-        //-   li
-        //-     a(href="/"+languageCode+"/programa#" + band.slug)
-        //-       .sixteen-nine
-        //-         header.content.center.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
-        //-           //- img(src="/images/bandas/"+band.slug+"-label.png", height="300").absolute.top-4.left-minus-4
+        each band in bands.filter(band => band.banner)
+          li
+            a(href="/"+languageCode+"/bandas/" + band.slug)
+              .sixteen-nine
+                header.content.px3.py1.white.bg-black.bg-cover(style="background-image: url(/images/bandas/" + band.banner +")")
+                    .absolute.right-0.bottom-0.mr3.mb3.right-align.bg-black.muted-less.p2
+                        .h2.font-title.white=band.venue
+                        .h2.font-title.bbbf-blue=band.date
+                        .h1.font-title.white=band.name.toUpperCase()
 
     section.container.px4.py2.bg-bbbf-blue
       .container.border-bottom-dotted.pb3

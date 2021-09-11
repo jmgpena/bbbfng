@@ -38,6 +38,7 @@ module.exports = {
                 band = row;
                 band.name  = row['name_'+locale] || row['name'];
                 band.info  = row['info_'+locale] || row['info'];
+                band.info  = md.render(band.info);
                 band.local = row['local_'+locale] || row['local'];
             }
 
