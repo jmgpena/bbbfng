@@ -15,7 +15,7 @@ html(lang="en")
               span.white=bands[0].time
               span=" - " + bands[0].venue.toUpperCase()
             .h1.font-title
-              a.link-black(href="#"+bands[0].slug)=bands[0].name.toUpperCase()
+              a.link-black(href="/bandas/"+bands[0].slug)=bands[0].name.toUpperCase()
         tr
           td.pl3.align-top(style="width:15%")
             .day=bands[1].dia+"."
