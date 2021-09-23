@@ -6,7 +6,9 @@ html(lang="en")
 
     section.bg-bbbf-blue.py3.px4
       .h1.font-title.mb2.white=band.name.toUpperCase()
-      img.left.mr2.mb2(src="/images/bandas/" + band.pic).max-width-2
+      if band.pic
+          img.left.mr2.mb2.max-width-2(src="/images/bandas/" + band.pic)
       .font-text !{band.info}
+      .clearfix
 
     include ./includes/footer.pug
