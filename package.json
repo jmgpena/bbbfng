@@ -21,7 +21,7 @@
     "basscss-background-images": "0.0.10",
     "browser-sync": "2.27.5",
     "gulp": "4.0.0",
-    "gulp-nodemon": "2.0.6",
+    "gulp-nodemon": "2.5.0",
     "gulp-postcss": "6.1.0",
     "gulp-sourcemaps": "1.6.0",
     "npm-run-all": "^4.1.1",
